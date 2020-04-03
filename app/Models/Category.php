@@ -33,5 +33,14 @@ class Category extends Model
     {
        return $this->find($id);
     }
+
+    public function getCategories()
+    {
+        $res = [];
+        foreach ($this->select('id','name')->get() as $category)
+            $res[$category->id] = $category->name;
+        return $res;
+    }
+
 }
 

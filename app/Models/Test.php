@@ -5,9 +5,11 @@ namespace App\Models;
 use App\Models\Question;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Test extends Model
 {
+    use HasTrixRichText;
     protected $fillable = ['name','description','category_id','difficulty','max_time','questions','max_points'];
 
    public function questions() // questions with answers related to chosen test
@@ -86,5 +88,26 @@ class Test extends Model
             'questions' => $data['questionsCount'],
             'max_points' => $data['max_points']
         ]);
+    }
+
+    public function getTestInfo($id)
+    {
+       return $this->with('getQuestionsInfo')->where('id',$id)->first();
+    }
+
+    public function updateTest($id,$data)
+    {
+        $this->find($id)->update([
+            'name' => $data['name'],
+            'category_id' => $data['category_id'],
+            'description' => $data['description'],
+            'max_time' => $data['max_time'],
+            'difficulty' => $data['difficulty'],
+        ]);
+    }
+
+    public function getQuestionsInfo()
+    {
+        return $this->hasMany(Question::class)->with(['answersCount']);
     }
 }

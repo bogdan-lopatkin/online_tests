@@ -2,21 +2,23 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class CheckIfAdmin
+class checkIfBanned
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user() && auth()->user()->role_id != 1) {
-            abort(403, 'Доступ запрещен');
+        if (auth()->user() && auth()->user()->banned) {
+            abort(403, 'Вы забанены');
         } else {
             return $next($request);
         }

@@ -19,9 +19,10 @@ class CreateUserTest extends Migration
             $table->foreignId('test_id')->index();
             $table->enum('status',['none','started','completed']);
             $table->integer('mark');
+            $table->json('picked_answers');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('test_id')->references('id')->on('tests');
+      //      $table->foreign('user_id')->references('id')->on('users');
+        //    $table->foreign('test_id')->references('id')->on('tests');
 
         });
     }

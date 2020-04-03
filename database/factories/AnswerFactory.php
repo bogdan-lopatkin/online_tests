@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Answer::class, function (Faker $faker) {
     return [
-        'question_id' => rand(1,10),
+        'question_id' => rand(4,150),
         'answer_body' => $faker->text(),
         'is_correct' => 0
     ];

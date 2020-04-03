@@ -27,7 +27,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $category->name }}</td>
-                            <td>{{ $category->countTests[0]->total }}</td>
+                            <td>{{ $category->countTests[0]->total ?? 0 }}</td>
                             <td><a class="btn btn-outline-primary" href="{{ route('admin.category.show',$category->id) }}">Подробнее</a> </td>
                             <td><a class="btn btn-outline-info" href="{{ route('admin.category.edit',$category->id) }}">Редактировать</a></td>
                             <td>

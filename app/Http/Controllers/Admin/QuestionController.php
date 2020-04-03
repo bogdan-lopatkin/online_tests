@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
+use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+
 
 class QuestionController extends Controller
 {
@@ -12,9 +16,16 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $model;
+
+    public function __construct(Question $model)
+    {
+        $this->model = $model;
+    }
+
     public function index()
     {
-        //
+        return view('Admin.questions',['questions' => $this->model->getQuestionsInfo()]);
     }
 
     /**
@@ -24,7 +35,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.questions.add');
     }
 
     /**
@@ -35,7 +46,8 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->model->create(['name' => $request['name']]);
+        return redirect(route('admin.question.index'));
     }
 
     /**
@@ -46,7 +58,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('Admin.questions.show',['question' => $this->model->getQuestionWithAnswers($id)]);
     }
 
     /**
@@ -57,7 +69,8 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Admin.questions.edit',['question' => $this->model->find($id),
+            'tests' => Test::select('id','name')->get()]);
     }
 
     /**
@@ -69,17 +82,19 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->model->find($id)->update(['question_body' => $request['question'], 'points' => $request['points'], 'test_id' => $request['test_id']]);
+        return redirect(route('admin.question.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
-        //
+        $this->model->find($id)->delete();
+        return redirect(URL::previous());
     }
 }

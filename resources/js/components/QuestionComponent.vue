@@ -114,18 +114,18 @@
             this.resultInfo = JSON.stringify(temp);
             temp = null;
 
-            if(this.was != null) {
-              //  this.nextQuestion();
-                let temp = JSON.parse(this.was);
-                temp = temp[0].pivot;
-                let answers =JSON.parse(temp.picked_answers);
-                console.log(temp);
-                this.currentTime = (new Date() - new Date(temp.created_at));
-                for (var prop in answers) {
-                    this.picked[prop] = answers[prop];
-                }
-            }
-        },
+      //      if(this.was != null) {  // todo   Проверка времени и ответов для экзаменов
+              // //  this.nextQuestion();
+              //   let temp = JSON.parse(this.was);
+              //   temp = temp[0].pivot;
+              //   let answers =JSON.parse(temp.picked_answers);
+              //   console.log(temp);
+              //   this.currentTime = (new Date() - new Date(temp.created_at));
+              //   for (var prop in answers) {
+              //       this.picked[prop] = answers[prop];
+              //   }
+           // }
+        }   ,
         mounted() {
             var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
             let i = 0;

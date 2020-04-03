@@ -15,14 +15,30 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    // fixme  не используется
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function index($categoryName)
     {
-        $tests = Category::where('name',$categoryName)->first()->categoryTests;
+     //   $tests = Category::where('name',$categoryName)->first()->categoryTests;
 //        foreach ($category as $cat)
 //            echo $cat->name . '<br>';
 //        dd($category);
 //        $tests =$category->categoryTests;
-        return view('tests',['tests' => $tests,'category' => $categoryName]);
+     //   return view('tests',['tests' => $tests,'category' => $categoryName]);
     }
 
     /**
@@ -54,22 +70,22 @@ class TestController extends Controller
      */
     public function show($category,$id)
     {
-        $test = Test::where('id',$id)->first();
-        $questionIds = $test->questions()->get();
-
-
-        $questions = Question::with('answers')->findMany($questionIds->pluck('id'));
-
-        $currentTest =  session()->get('currentTest');
-        $testInfo = null;
-        if($currentTest) {
-        $timeLeft = $currentTest[0]['time'];
-        $answered = $currentTest[0]['answers'];
-        $testId = $currentTest[0]['testId'];
-        $testInfo = ['time' => $timeLeft,'answered'=>$answered,'testId' => $testId];
-
-        }
-        return view('test',compact('questions','test','testInfo'));
+//        $test = Test::where('id',$id)->first();
+//        $questionIds = $test->questions()->get();
+//
+//
+//        $questions = Question::with('answers')->findMany($questionIds->pluck('id'));
+//
+//        $currentTest =  session()->get('currentTest');
+//        $testInfo = null;
+//        if($currentTest) {
+//        $timeLeft = $currentTest[0]['time'];
+//        $answered = $currentTest[0]['answers'];
+//        $testId = $currentTest[0]['testId'];
+//        $testInfo = ['time' => $timeLeft,'answered'=>$answered,'testId' => $testId];
+//
+//        }
+//        return view('test',compact('questions','test','testInfo'));
 
     }
 

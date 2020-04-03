@@ -18,7 +18,7 @@ class CreateAnswers extends Migration
             $table->foreignId('question_id')->index();
             $table->text('answer_body');
             $table->boolean('is_correct');
-            $table->foreign('question_id')->references('id')->on('questions');
+           // $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 

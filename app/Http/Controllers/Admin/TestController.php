@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTest;
 use App\Models\Answer;
+use App\Models\Category;
 use App\Models\Question;
 use App\Models\Test;
 use Illuminate\Http\Request;
@@ -20,10 +22,12 @@ class TestController extends Controller
 
 
     protected $model;
+    protected $categoryModel;
 
-    public function __construct(Test $model)
+    public function __construct(Test $model,Category $category)
     {
-     $this->model = $model;
+        $this->model = $model;
+        $this->categoryModel = $category;
     }
 
     public function index(Request $request)
@@ -50,7 +54,6 @@ class TestController extends Controller
     public function store(Request $request)
     {
         $data =  $request->json()->all();
-
         $id = $this->model->saveTest($data)->id;
         foreach ($data['questions'] as $question) {
             $questionId = Question::create([
@@ -77,7 +80,7 @@ class TestController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('Admin.tests.show',['test' => $this->model->getTestInfo($id)]);
     }
 
     /**
@@ -88,7 +91,8 @@ class TestController extends Controller
      */
     public function edit($id)
     {
-        return view('Admin.tests.edit',['test' => $this->model->find($id)]);
+        return view('Admin.tests.edit',['test' => $this->model->find($id),
+            'categories' => $this->categoryModel->getCategories()]);
     }
 
     /**
@@ -100,7 +104,7 @@ class TestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->model->find($id)->update(['name' => $request['name']]);
+        $this->model->updateTest($id,$request->all());
         return redirect(URL::previous());
     }
 

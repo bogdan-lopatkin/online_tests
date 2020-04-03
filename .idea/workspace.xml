@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92e0a141-6783-4bb9-827e-f2da3480c044" name="Default Changelist" comment="" />
+    <list default="true" id="92e0a141-6783-4bb9-827e-f2da3480c044" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../localhost/.idea/localhost.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/answers/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/answers/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/questions/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/questions/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/questions/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnswerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckIfAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckIfAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Answer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AnswerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AnswerFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/QuestionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/QuestionFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TestFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TestFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_141856_create_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_141856_create_categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_142307_create_answers.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_142307_create_answers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_142427_create_tests.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_142427_create_tests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_142859_create_user_test.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_142859_create_user_test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_152148_add_reference_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_152148_add_reference_to_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/QuestionTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/QuestionTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TestTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TestTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/QuestionComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/QuestionComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/layouts/sidebar/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/layouts/sidebar/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/tests/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/tests/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/tests/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/tests/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/users/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +55,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -119,6 +165,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ZckH5WGwq8WUSN1rQtoQj63HsP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -126,8 +173,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
   </component>
   <component name="RecentsManager">
@@ -139,11 +187,11 @@
       <recent name="D:\openserv\OSPanel\domains\online_tests\app\Http\Controllers\Test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\js\components" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin\layouts\categories" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin\layouts\users" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin\layouts\tests" />
-      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin\layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -168,7 +216,7 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="226077000" />
+      <workItem from="1585375697048" duration="265452000" />
     </task>
     <servers />
   </component>
@@ -188,14 +236,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585849892952" />
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585849815089">
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585939557849">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585849815089" />
-    <state x="962" y="292" width="440" height="508" key="FileChooserDialogImpl" timestamp="1585153750593">
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585939557849" />
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1585900560602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="962" y="292" width="440" height="508" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585153750593" />
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585900560601" />
+    <state x="962" y="292" width="440" height="508" key="FileChooserDialogImpl" timestamp="1585861147299">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="962" y="292" width="440" height="508" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585861147299" />
+    <state x="805" y="397" width="334" height="304" key="Github.ShareDialog" timestamp="1585861125651">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="805" y="397" width="334" height="304" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585861125651" />
     <state x="794" y="444" key="NewPhpFileDialog" timestamp="1585588594961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -212,10 +268,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585378738286" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585654607921">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585937825730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585654607921" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585937825730" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585644135306">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

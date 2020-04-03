@@ -21,6 +21,7 @@ class CreateTests extends Migration
             $table->enum('difficulty',['1','2','3','4','5']);
             $table->integer('max_time');
             $table->integer('questions');
+            $table->integer('max_points');
             $table->integer('created_by');
             $table->timestamps();
         });

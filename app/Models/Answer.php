@@ -29,4 +29,5 @@ protected $fillable = ['answer_body','question_id','is_correct'];
 
         return $result;
     }
+
 }

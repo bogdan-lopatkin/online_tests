@@ -15,10 +15,36 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    //fixme  не используется
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function index()
     {
-        $tests = Models\Test::all();
-        return view('tests',compact('tests'));
+    //    $tests = Models\Test::all();
+      //  return view('tests',compact('tests'));
     }
 
     /**
@@ -50,12 +76,12 @@ class CategoryController extends Controller
      */
     public function show($categoryName)
     {
-        $tests = Category::where('name',$categoryName)->first()->categoryTests;
+       // $tests = Category::where('name',$categoryName)->first()->categoryTests;
 //        foreach ($category as $cat)
 //            echo $cat->name . '<br>';
 //        dd($category);
 //        $tests =$category->categoryTests;
-        return view('tests',compact('tests'));
+     //   return view('tests',compact('tests'));
     }
 
     /**

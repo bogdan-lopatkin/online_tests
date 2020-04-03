@@ -3,10 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class UserController extends Controller
 {
+    protected $model;
+
+    public function __construct(User $model)
+    {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.users',['users' => $this->model->select('*')->get() ]);
     }
 
     /**
@@ -57,7 +67,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Admin.users.edit',['user' => $this->model->find($id)]);
     }
 
     /**
@@ -69,7 +79,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->model->find($id)->update(['name' => $request['name'],'email' => $request['email'],'banned' => $request['banned']]);
+        return redirect(URL::previous());
     }
 
     /**
@@ -80,6 +91,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->find($id)->delete();
+        return redirect(URL::previous());
     }
 }
