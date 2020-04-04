@@ -8,6 +8,7 @@ use App\Models\Answer;
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\Test;
+use App\Service\CreateTestService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\URL;
@@ -23,11 +24,13 @@ class TestController extends Controller
 
     protected $model;
     protected $categoryModel;
+    protected $service;
 
-    public function __construct(Test $model,Category $category)
+    public function __construct(Test $model,Category $category,CreateTestService $service)
     {
         $this->model = $model;
         $this->categoryModel = $category;
+        $this->service = $service;
     }
 
     public function index(Request $request)
@@ -53,22 +56,7 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        $data =  $request->json()->all();
-        $id = $this->model->saveTest($data)->id;
-        foreach ($data['questions'] as $question) {
-            $questionId = Question::create([
-                'question_body' => $question['name'],
-                'test_id' => $id,
-                'points' => $question['points']
-            ])->id;
-            foreach ($question['answers'] as $answer) {
-                Answer::create([
-                    'answer_body' => $answer['name'],
-                    'question_id' => $questionId,
-                    'is_correct' => $answer['correct']
-               ]);
-            }
-        }
+        $this->service->handleTestCreate($request);
         return URL::previous();
     }
 

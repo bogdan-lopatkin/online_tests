@@ -1,7 +1,7 @@
 @extends('Admin.app') @section('content')
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-        <h2>Категории <a class="btn btn-dark" href="{{ route('admin.category.create') }}">Добавить</a></h2>
+        <h2>Пользователи <a class="btn btn-dark" href="{{ route('admin.user.create') }}">Добавить</a></h2>
         <div class="table-responsive">
             <table id="example" class="table table-striped table-sm">
                 <thead>
