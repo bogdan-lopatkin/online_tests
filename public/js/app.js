@@ -2042,6 +2042,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['json_data', 'was', 'route'],
@@ -2059,16 +2063,19 @@ __webpack_require__.r(__webpack_exports__);
     temp = null;
 
     if (this.was != null) {
-      //  this.nextQuestion();
-      var _temp = JSON.parse(this.was);
+      // todo строгая  Проверка времени и ответов для экзаменов основанная на created_at
+      var _temp = JSON.parse(this.was)[0];
 
-      _temp = _temp[0].pivot;
-      var answers = JSON.parse(_temp.picked_answers);
-      console.log(_temp);
-      this.currentTime = new Date() - new Date(_temp.created_at);
+      if (_temp.pivot.status === 'completed') {
+        this.start_button_text = 'Пройти тест еще раз';
+        this.testAlreadyPassed = true;
+        this.previousResult = _temp.pivot.mark;
+      } else if (_temp.pivot.status === 'started') {
+        this.currentTime = _temp.pivot.time_passed;
+        var answers = JSON.parse(_temp.pivot.picked_answers);
+        this.picked = answers; // this.currentQuestion = Object.keys(answers).length;  // Нужно ли перекидывать пользователя на последний ответ автоматически?
 
-      for (var prop in answers) {
-        this.picked[prop] = answers[prop];
+        this.start_button_text = 'Продолжить прохождение теста';
       }
     }
   },
@@ -2093,7 +2100,10 @@ __webpack_require__.r(__webpack_exports__);
       picked: {},
       startedAt: '',
       testData: [],
-      resultInfo: ''
+      resultInfo: '',
+      start_button_text: 'Начать тест',
+      testAlreadyPassed: false,
+      previousResult: 0
     };
   },
   computed: {
@@ -39232,7 +39242,21 @@ var render = function() {
                 domProps: { innerHTML: _vm._s(_vm.testData["name"]) }
               }),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(1),
+              _vm._v(" "),
+              _vm.testAlreadyPassed
+                ? _c("div", { staticClass: "mt-5" }, [
+                    _c("h3", [
+                      _vm._v(
+                        "Вы уже прошли этот тест с результатом " +
+                          _vm._s(_vm.previousResult) +
+                          " / "
+                      ),
+                      _c("b", [_vm._v(_vm._s(_vm.testData.max_points))]),
+                      _vm._v(" баллов")
+                    ])
+                  ])
+                : _vm._e()
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -39398,7 +39422,7 @@ var render = function() {
                         on: { click: _vm.nextQuestion }
                       },
                       [
-                        _vm._v("Начать тест "),
+                        _vm._v(_vm._s(_vm.start_button_text)),
                         _c("i", { staticClass: "fa fa-chevron-circle-right" })
                       ]
                     )
@@ -39437,7 +39461,7 @@ var staticRenderFns = [
           _c("img", {
             attrs: {
               src:
-                "https://lh3.googleusercontent.com/pxgNn18P6LN0FUBb2_CRNlMo0H7iKRCjIphtaDWEabVn6yiz8GiWzvIp7PCjV3gE-rlB-Q=s164",
+                "https://lh3.googleusercontent.com/SYxMV8opec7S9gZeblQmDcZs6yP21JivqHUDga0oNKi1kQPVMkoKmhEQNj3mrv45dK4h-w=s164",
               alt: "Logo"
             }
           })
@@ -39457,7 +39481,7 @@ var staticRenderFns = [
         _c("b", [_vm._v("left")]),
         _vm._v(" и "),
         _c("b", [_vm._v("right")]),
-        _vm._v(" стрелки клавиатуры что бы переключать восросы.")
+        _vm._v(" стрелки клавиатуры что бы переключать вопросы.")
       ])
     ])
   },

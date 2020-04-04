@@ -6,7 +6,7 @@
             <header>
                 <div class="site-branding">
                     <a title="OnlineTests">
-                        <img  src="https://lh3.googleusercontent.com/pxgNn18P6LN0FUBb2_CRNlMo0H7iKRCjIphtaDWEabVn6yiz8GiWzvIp7PCjV3gE-rlB-Q=s164" alt="Logo">
+                        <img  src="https://lh3.googleusercontent.com/SYxMV8opec7S9gZeblQmDcZs6yP21JivqHUDga0oNKi1kQPVMkoKmhEQNj3mrv45dK4h-w=s164" alt="Logo">
                     </a>
                 </div>
             </header>
@@ -42,7 +42,11 @@
 
                 <div  class="instructions">
                     <h3 >Совет</h3>
-                    <div >Можно использовать <b>left</b> и <b>right</b> стрелки клавиатуры что бы переключать восросы.</div>
+                    <div >Можно использовать <b>left</b> и <b>right</b> стрелки клавиатуры что бы переключать вопросы.</div>
+                </div>
+
+                <div v-if="testAlreadyPassed" class="mt-5">
+                    <h3>Вы уже прошли этот тест с результатом {{ previousResult }} / <b>{{ testData.max_points }}</b> баллов</h3>
                 </div>
             </div>
             <div v-if="testEnded"  class="quiz-info-container">
@@ -81,7 +85,7 @@
                      </div>
 
                      <div v-if="currentQuestion==0" class="column">
-                         <button type="button" @click="nextQuestion" class="btn btn-next">Начать тест <i class="fa fa-chevron-circle-right"></i>
+                         <button type="button" @click="nextQuestion" class="btn btn-next">{{ start_button_text }}<i class="fa fa-chevron-circle-right"></i>
                          </button>
                      </div>
                      <div v-else-if="testEnded" class="column">
@@ -114,18 +118,21 @@
             this.resultInfo = JSON.stringify(temp);
             temp = null;
 
-      //      if(this.was != null) {  // todo   Проверка времени и ответов для экзаменов
-              // //  this.nextQuestion();
-              //   let temp = JSON.parse(this.was);
-              //   temp = temp[0].pivot;
-              //   let answers =JSON.parse(temp.picked_answers);
-              //   console.log(temp);
-              //   this.currentTime = (new Date() - new Date(temp.created_at));
-              //   for (var prop in answers) {
-              //       this.picked[prop] = answers[prop];
-              //   }
-           // }
-        }   ,
+            if(this.was != null) {                     // todo строгая  Проверка времени и ответов для экзаменов основанная на created_at
+                let temp = JSON.parse(this.was)[0];
+                if(temp.pivot.status === 'completed') {
+                    this.start_button_text = 'Пройти тест еще раз';
+                    this.testAlreadyPassed = true;
+                    this.previousResult = temp.pivot.mark;
+                } else if(temp.pivot.status === 'started') {
+                    this.currentTime = temp.pivot.time_passed;
+                    let answers =  JSON.parse(temp.pivot.picked_answers);
+                    this.picked = answers;
+                   // this.currentQuestion = Object.keys(answers).length;  // Нужно ли перекидывать пользователя на последний ответ автоматически?
+                    this.start_button_text = 'Продолжить прохождение теста';
+                }
+            }
+        },
         mounted() {
             var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
             let i = 0;
@@ -147,7 +154,10 @@
                 picked : {},
                 startedAt : '',
                 testData : [],
-                resultInfo : ''
+                resultInfo : '',
+                start_button_text : 'Начать тест',
+                testAlreadyPassed : false,
+                previousResult : 0
             }
         },
          computed :{

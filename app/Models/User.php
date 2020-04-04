@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id','banned'
+        'name', 'email', 'password','role_id','banned','time_passed'
     ];
 
     /**
@@ -44,20 +44,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function tests()
     {
-       return $this->belongsToMany(Test::class,'user_test')->withPivot('status','mark','picked_answers','created_at');
+       return $this->belongsToMany(Test::class,'user_test')->withPivot('status','mark','picked_answers','time_passed','created_at');
     }
 
-    public function saveResult($id,$testId,$status,$answers = null,$mark = null)
+    public function saveResult($id,$testId,$status,$answers = null,$mark,$time)
     {
         if(!$this->with('user_id',$id,'test_id',$testId)) {
             $this->find($id)->tests()->attach(array($testId => ['status' => $status,
-                'mark' => $mark,
-                'picked_answers' => json_encode($answers)
+                'mark' => $mark ?? 0,
+                'picked_answers' => json_encode($answers),
+                'time_passed' => $time
             ]));
         } else {
             $this->find($id)->tests()->sync(array($testId => ['status' => $status,
-                'mark' => $mark,
-                'picked_answers' => json_encode($answers)
+                'mark' => $mark  ?? 0,
+                'picked_answers' => json_encode($answers),
+                'time_passed' => $time
             ]),false);
         }
     }
@@ -70,6 +72,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getSavedTestData($userId,$testId)
     {
        return $this->find($userId)->tests()->where('test_id',$testId)->get();
-
     }
 }

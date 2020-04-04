@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Service\SaveTestService;
 use Illuminate\Http\Request;
 
 class SaveTestController extends Controller
@@ -15,21 +16,15 @@ class SaveTestController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    protected $model;
-    public function __construct(User $model)
+    protected $service;
+    public function __construct(SaveTestService $service)
     {
-        $this->model = $model;
+        $this->service = $service;
     }
 
     public function __invoke(Request $request)
     {
-        $currentTest['answers'] = $request->json('answers');
-        $currentTest['time'] = $request->json('time');
-        $currentTest['testId'] = $request->json('testId');
-        $this->model->saveResult(auth()->id(),$currentTest['testId'],'started',$request->json('answers'));
-        session()->forget('currentTest');
-        session()->push('currentTest',$currentTest);
-
+       $this->service->handleTestSave($request);
         return  session()->get('currentTest');
     }
 }

@@ -22,7 +22,7 @@ class ResultService
     {
         $result = $this->model->getResult($request->except('_token','test_info'));
         $testInfo = json_decode($request->get('test_info'));
-        $this->userModel->saveResult(auth()->id(),$testInfo->id ,'completed',$request->except('_token','test_info'),$result['points']);
+        $this->userModel->saveResult(auth()->id(),$testInfo->id ,'completed',$request->except('_token','test_info'),$result['points'],0);
 
         return [$result,$testInfo];
     }
