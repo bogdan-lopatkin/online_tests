@@ -4,14 +4,7 @@
     <list default="true" id="92e0a141-6783-4bb9-827e-f2da3480c044" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../localhost/.idea/localhost.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/SaveTestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/SaveTestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Service/ResultService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/ResultService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_142859_create_user_test.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_142859_create_user_test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/QuestionComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/QuestionComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TestTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TestTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +177,7 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="271936000" />
+      <workItem from="1585375697048" duration="272363000" />
     </task>
     <servers />
   </component>
