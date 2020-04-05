@@ -16,12 +16,12 @@
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                <tr>
+                <tr> 
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->email_verified_at ? 'Да' : 'Нет' }}</td>
-                    <td>{{ $user->role_id }}</td>
+                    <td>{{ $roles[$user->role_id] }}</td>
                     <td>{{ $user->banned ? 'Забанен' : 'Активен' }}</td>
                     <td>{{ $user->created_at }}</td>
 

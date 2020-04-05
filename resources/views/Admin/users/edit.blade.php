@@ -6,6 +6,8 @@
         {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
         <h2>Почта</h2>
         {!! Form::text('email',$user->email,['class' => 'form-control','min' => '5']) !!}
+        <h2>Роль</h2>
+        {!! Form::select('role',$roles, 3,['class' => 'form-control']) !!}
         <h2>Забанен?</h2>
         {!! Form::select('banned',[0 => 'Нет',1 => 'Да'], $user->banned,['class' => 'form-control']) !!}
         {{ Form::submit('Сохранить изменения',['class' => 'btn btn-success btn-lg mt-4']) }}

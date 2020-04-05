@@ -25,17 +25,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('Admin.users',['users' => $this->model->select('*')->get() ]);
+        $roles = [];
+        foreach (Role::select('*')->get() as $item)  $roles[$item->id] = $item->name;
+        return view('Admin.users',['users' => $this->model->select('*')->get(), 'roles' => $roles ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        return view('Admin.users.add',['roles' => Role::select('*')->get() ]);
+        $roles = [];
+        foreach (Role::select('*')->get() as $item)  $roles[$item->id] = $item->name;
+        return view('Admin.users.add',compact('roles'));
     }
 
     /**
@@ -68,7 +72,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('Admin.users.edit',['user' => $this->model->find($id)]);
+        $roles = [];
+        foreach (Role::select('*')->get() as $item)  $roles[$item->id] = $item->name;
+        return view('Admin.users.edit',['user' => $this->model->find($id), 'roles' => $roles]);
     }
 
     /**

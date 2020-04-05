@@ -9,15 +9,15 @@ use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Test extends Model
 {
-    use HasTrixRichText;
     protected $fillable = ['name','description','category_id','difficulty','max_time','questions','max_points'];
+
 
    public function questions() // questions with answers related to chosen test
    {
        return $this->hasMany(Question::class)->inRandomOrder();
    }
 
-    public function testCategories() // full info every available category
+    public function testCategories() // full info about every available category
     {
         return $this->with('category')
             ->select('category_id',

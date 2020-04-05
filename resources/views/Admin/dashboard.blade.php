@@ -181,21 +181,22 @@
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                labels: ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота","Воскресенье"],
                 datasets: [{
-                    data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                    data: [1, 5, 2, 18, 8, 30, 4],
                     lineTension: 0,
                     backgroundColor: 'transparent',
                     borderColor: '#007bff',
                     borderWidth: 4,
                     pointBackgroundColor: '#007bff'
-                }]
+                }],
+                
             },
             options: {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: false
+                            beginAtZero: true
                         }
                     }]
                 },

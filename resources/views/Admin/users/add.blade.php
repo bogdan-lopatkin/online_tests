@@ -10,7 +10,7 @@
         <h2>Забанен?</h2>
         {!! Form::select('banned',[0 => 'Нет',1 => 'Да'], null,['class' => 'form-control']) !!}
         <h2>Роль</h2>
-        {!! Form::select('role',[$roles->id => $roles->name], null,['class' => 'form-control']) !!}
+        {!! Form::select('role',$roles, 3,['class' => 'form-control']) !!}
         {{ Form::submit('Сохранить изменения',['class' => 'btn btn-success btn-lg mt-4']) }}
         {{ Form::close() }}
 
