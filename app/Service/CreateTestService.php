@@ -23,6 +23,11 @@ class CreateTestService
     {
         $data =  $request->json()->all();
         $id = $this->model->saveTest($data)->id;
+
+        $test = $this->model->find($id);
+        $test->group_id = auth()->user()->group->id ?? null;
+        $test->save();
+
         foreach ($data['questions'] as $question) {
             $questionId = Question::create([
                 'question_body' => $question['name'],

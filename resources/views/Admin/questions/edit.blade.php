@@ -6,11 +6,9 @@
         <h2>Вопрос</h2>
         {!! Form::hidden('question', $question->question_body, ['class' => 'form-control', 'id' => 'description']) !!}
         <trix-editor input="description"></trix-editor>
-        <h2>Принадлежит к тесту</h2>
-        {!! Form::select('test_id',$tests, $question->test_id, ['class' => 'form-control']) !!}
         <h2>Баллов за ответ</h2>
         {!! Form::number('points',$question->points, ['class' => '','min' => '5']) !!} баллов
-        <br>  <!--fixme Убрать это -->
+        <div class="w-100"></div>
         {{ Form::submit('Сохранить изменения',['class' => 'btn btn-success  btn-lg mt-4']) }}
         {{ Form::close() }}
 

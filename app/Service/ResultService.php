@@ -20,7 +20,7 @@ class ResultService
 
    public function handleResult(Request $request) : array
     {
-        $result = $this->model->getResult($request->except('_token','test_info'));
+        $result = $this->model->getResult($request->get('answers'));
         $testInfo = json_decode($request->get('test_info'));
         $this->userModel->saveResult(auth()->id(),$testInfo->id ,'completed',$request->except('_token','test_info'),$result['points'],0);
 

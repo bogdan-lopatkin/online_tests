@@ -7,7 +7,6 @@
 
                      json_data="{{ json_encode($testData[0]) }} "
                      was="{{ json_encode($savedData) ?? null }} "
-                     route="{{ route('showResult') }}"
 
  >
  </question-paginator>

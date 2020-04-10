@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class Category extends Model
 {
@@ -15,7 +16,6 @@ class Category extends Model
         return $this->hasMany(Test::class)
             ->select('id','category_id',DB::raw('count(category_id) as total'))
             ->groupBy('category_id');
-
     }
 
     public function tests()
@@ -26,6 +26,7 @@ class Category extends Model
 
     public function categoriesInfo()
     {
+
         return $this->with('countTests')->get();
     }
 

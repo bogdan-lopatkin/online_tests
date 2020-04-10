@@ -4,27 +4,21 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <h2>Тесты в категории {{ $category->name }} <a class="btn btn-dark" href="{{ route('admin.test.create') }}">Добавить новый тест</a></h2>
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table text-center table-striped table-sm">
                 <thead>
-                <form method="get" action="{{ route('admin.test.index') }}">
-                    @if( Request::get("param") != 'desc' )
-                        <input type="hidden" name="param" value="desc">
-                    @else
-                        <input type="hidden" name="param" value="asc">
-                    @endif
-                    <tr>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'id'  }}">#</button></th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'name' }}">Название</button></th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'questions' }}">Количество вопросов</a> </th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'difficulty' }}">Сложность</button></th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'max_time' }}">Время на выполнение</a>  </th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'created_at' }}">Создан</button></th>
+
+                        <th>#</th>
+                        <th>Название</th>
+                        <th>Количество вопросов </th>
+                        <th>Сложность</th>
+                        <th>Время на выполнение  </th>
+                        <th>Создан</th>
                     </tr>
                 </form>
                 </thead>
 
                 <tbody>
-                @foreach($category->tests()->paginate(5) as $test)
+                @foreach($category->tests()->paginate(15) as $test)
                     <tr>
                         <td>{{ $test->id }}</td>
                         <td>{{ $test->name }}</td>

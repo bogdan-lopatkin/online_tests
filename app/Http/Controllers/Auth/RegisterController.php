@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Group;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -53,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'group_name' => ['required_if:role_id,2']
         ]);
     }
 
@@ -64,11 +66,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return \App\Models\User::create([
+
+        $user = \App\Models\User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => $data['role_id']
         ]);
+       \App\Models\User::find($user->id)->roles()->attach(array($data['role_id']));
+       if($data['role_id'] == 2) {
+         $group = Group::create([
+               'name' => $data['group_name'],
+               'owner_id' => $user->id
+       ]);
+          $user = \App\Models\User::find($user->id);
+          $user->group_id = $group->id;
+          $user->save();
+           }
+        return $user;
     }
 }

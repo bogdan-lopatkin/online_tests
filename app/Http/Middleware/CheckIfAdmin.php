@@ -15,7 +15,7 @@ class CheckIfAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user() && auth()->user()->role_id != 1) {
+        if (!auth()->user() || is_null(auth()->user()->roles->where('id',1)->first())) {
             abort(403, 'Доступ запрещен');
         } else {
             return $next($request);

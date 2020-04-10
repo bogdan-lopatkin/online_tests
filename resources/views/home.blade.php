@@ -3,6 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+
+        @if(auth()->user()->checkRole('teacher'))
+            lll
+        @endif
+
+        @teacher
+           Ваша группа - {{ auth()->user()->group->name }}
+            <a href="{{ route('group.index') }}">Задать домашнее задание</a>
+            <a href="{{ route('group.index') }}">Создать тест</a>
+            <a href="{{ route('group.index') }}">Создать статью</a>
+            <a href="{{ route('group.index') }}">Просмотреть учеников</a>
+        @endteacher
+
         <h2>Ваши тесты</h2>
         <div class="table-responsive">
             <table class="table table-striped table-sm">

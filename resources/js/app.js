@@ -3,10 +3,50 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
+
+
 import "vue-trix";
-import 'vue-piczoom';
+import VueRouter from 'vue-router'
+import test_categories from "./views/test_categories"
+import category_tests from "./views/category_tests";
+import test from "./views/test";
+import result from "./views/result";
+
 require('./bootstrap');
 window.Vue = require('vue');
+ Vue.use(VueRouter);
+
+  const router = new VueRouter({
+     routes: [
+
+         {
+             path: '/tests/category/:categoryId/tests/',
+             name: 'tests',
+             component: category_tests,
+             props : true
+         },
+         {
+             path: '/tests',
+             name: 'test_categories',
+             component: test_categories
+         },
+         {
+             path: '/tests/test/:id',
+             name: 'test',
+             component: test
+         },
+         {
+             path: '/tests/:id/result',
+             name: 'result',
+             component: result,
+             props: true,
+         },
+     ],
+      mode: 'history',
+  });
+
+
 
 
 /**
@@ -20,6 +60,7 @@ window.Vue = require('vue');
  //const files = require.context('./', true, /\.vue$/i)
  //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('spa-app', require('./views/app.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('question-paginator', require('./components/QuestionComponent.vue').default);
 Vue.component('question-constructor', require('./components/QuestionConstructorComponent.vue').default);
@@ -32,4 +73,5 @@ Vue.component('question-constructor', require('./components/QuestionConstructorC
 
 const app = new Vue({
     el: '#app',
+    router: router
 });

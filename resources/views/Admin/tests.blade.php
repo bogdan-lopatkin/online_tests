@@ -10,7 +10,7 @@
 
         <h2>Тесты <a class="btn btn-dark" href="{{ route('admin.test.create') }}">Добавить</a></h2>
         <div class="table-responsive">
-            <table id="example" class="table table-striped table-sm">
+            <table class="table text-center table-striped table-sm">
                 <thead>
                 <form method="get" action="{{ route('admin.test.index') }}">
                     @if( Request::get("param") != 'desc' )
@@ -39,7 +39,7 @@
                         <td>{{ $test->id }}</td>
                         <td>{{ $test->name }}</td>
                         <td>{{ $test->questions }}</td>
-                        <td><a href="{{ route('admin.category.show',$test->category_id) }}">{!!$test->category->name ?? '<b>Ошибка</b>'!!}</a></td>
+                        <td><a href="{{ route('admin.category.show',$test->category_id) }}">{!!$test->category->name ?? 'Учительский тест' !!}</a></td>
                         <td>{{ $test->difficulty }}</td>
                         <td>{{ $test->max_time }}</td>
                         <td>{{ $test->created_at }}</td>
@@ -57,11 +57,4 @@
             {{ $tests->links() }}
         </div>
     </main>
-
-    <script>
-        $(document).ready(function() {
-            $.noConflict();
-            $('#example').DataTable();
-        } );
-    </script>
 @endsection

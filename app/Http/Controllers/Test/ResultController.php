@@ -24,6 +24,7 @@ class ResultController extends Controller
     public function __invoke(Request $request)
     {
         $data = $this->service->handleResult($request);
-        return view('Tests.result', ['result' => $data[0],'test' => $data[1]]);
+        //return view('Tests.result',
+         return json_encode(['result' => $data[0],'test' => $data[1]]);
     }
 }

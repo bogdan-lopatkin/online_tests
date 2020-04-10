@@ -22,17 +22,24 @@ Route::get('/', function () {
 //Route::get('/test','CategoriesController@index');
 
 
+   // SPA controller
+    Route::get('/tests{any}', 'SpaController@index')->where('any', '.*');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('categories','CategoryController', [
-    'categories' => 'category',
-    'only' => ['index','show']
 
-]);
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home/settings', 'HomeController@settings')->name('home.settings');
+    Route::resource('/user', 'UserController')->names('user')->only(['show','update']);
+
+//Route::resource('categories','CategoryController', [
+//    'categories' => 'category',
+//    'only' => ['index','show']
+//
+//]);
 
 // Tests routes
-Route::group(['namespace' => 'Test', 'prefix' => 'tests'], function() {
+Route::group(['namespace' => 'Test', 'prefix' => 'api'], function() {
     Route::get('/', 'TestController1@index')->name('tests');
     Route::get('/{category}/', 'TestController1@showCategory')->name('tests.category');
     Route::get('/search', 'TestController1@showSearched')->name('tests.search');
@@ -43,7 +50,7 @@ Route::post('result','Test\ResultController')->name('showResult')->middleware(['
 
 
 // Admin routes
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin','as' => 'admin.','middleware' => 'checkIfAdmin'], function() {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkIfAdmin'], function() {  //,'middleware' => 'checkIfAdmin'
     Route::resource('/','DashboardController')->names('dashboard');
     Route::resource('categories','CategoryController')->names('category');
     Route::resource('users','UserController')->names('user');
@@ -53,6 +60,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin','as' => 'admin.','midd
     Route::resource('questions','QuestionController')->names('question');
     Route::get('/answer_add/{question_id?}',  'AnswerController@create')->name('answer.create');
     Route::resource('answers','AnswerController')->names('answer')->except('create');
+});
+
+// Teacher routes
+Route::group(['namespace' => 'Group', 'prefix' => 'group','as' => 'group.'], function() {
+    Route::get('/', 'GroupController@index')->name('index');
+    Route::post('/update', 'GroupController@update')->name('update');
+    Route::resource('/students', 'StudentController')->names('students');
+    Route::resource('/homework', 'HomeworkController')->names('homework');
+    Route::get('/articles', 'GroupController@articles')->name('articles');
+   // Route::get('/homework', 'GroupController@homework')->name('homework');
+  //  Route::get('/homework/{id}', 'GroupController@homeworkUpdate')->name('homework.update');
+    Route::resource('/tests', 'TestController')->names('tests');
+});
+
+// Forum routes
+
+Route::group(['namespace' => 'Forum', 'prefix' => 'forum','as' => 'forum.'], function() {
+    Route::resource('/threads', 'ThreadController')->names('thread');
+    Route::resource('/threads/answer', 'AnswerController')->names('thread.answer')->only('store','update','destroy');
+ //   Route::resource('/threads/answer/like', 'LikeController')->names('like')->only('store','destroy');
+    Route::post('/threads/answer/like', 'LikesController')->name('like');
+
 });
 
 // invokable routes

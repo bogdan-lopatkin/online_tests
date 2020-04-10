@@ -13,7 +13,7 @@ class StoreTest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->checkRole(1);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTest;
+use App\Http\Requests\Test\EditTest;
 use App\Models\Answer;
 use App\Models\Category;
 use App\Models\Question;
@@ -90,10 +91,10 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditTest $request, $id)
     {
         $this->model->updateTest($id,$request->all());
-        return redirect(URL::previous());
+        return redirect(route('admin.test.index'));
     }
 
     /**

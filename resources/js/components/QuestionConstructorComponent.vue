@@ -11,9 +11,14 @@
             <aside  class="quiz-info">
                 <div  class="progress-item question-count">
                     <div  class="value">
-                        <span  class="current">Категория
+                        <span v-if="categories"  class="current">Категория
                               <select v-model="testCategory" name="category">
                                 <option v-for="category in categories" :value="category.id">{{ category.name}}</option>
+                           </select>
+                        </span>
+                        <span v-else  class="current">Категория
+                              <select v-model="testCategory" name="category">
+                                <option value="0">Учительский тест</option>
                            </select>
                         </span>
                     </div>
@@ -148,7 +153,6 @@
         export default {
         props: ["categories",'upload_route','save_route'],
         created() {
-            console.log('kk');
             window.addEventListener('beforeunload', this.leaving);
         },
         data: function () {
@@ -181,7 +185,7 @@
             addNewQuestion() {
                 this.testQuestions.push({
                     name: "",
-                    answers: [{ name: "", correct: false },
+                    answers: [{ name: "", correct: true },
                         { name: "", correct: false },
                         { name: "", correct: false },
                         { name: "", correct: false }],
@@ -212,6 +216,20 @@
                 this.testQuestions[index].answers[childIndex].correct = true;
             },
             saveTest() {
+                let validated = true;
+                this.incorrectAnswer = true;
+                this.questionEmpty = false;
+                if(this.testQuestions[this.currentPage].name.length < 5) {
+                    this.questionEmpty = true;
+                }
+                this.testQuestions[this.currentPage].answers.forEach((item,index) => {
+                    if(item.name.length < 5 && this.incorrectAnswer === true) {
+                        this.incorrectAnswer = item;
+                        return false;
+                    }
+                });
+                if(this.incorrectAnswer === true && this.questionEmpty != true) {
+
                     let testInfo = {};
                     testInfo.testName = this.testName;
                     testInfo.testDescription = this.testDescription;
@@ -227,8 +245,8 @@
                     console.log(testInfo);
                     console.log(JSON.stringify(testInfo));
 
-                   let self = this;
-                       axios.post(this.save_route,JSON.stringify(testInfo))
+                    let self = this;
+                    axios.post(this.save_route, JSON.stringify(testInfo))
                         .then(function (response) {
                             //redirect logic
                             if (response.status == 200) {
@@ -239,6 +257,7 @@
                                 alert(response);
                             }
                         });
+                }
             },
             deleteAnswer(index, childIndex) {
                 this.testQuestions[index].answers.splice(childIndex, 1);

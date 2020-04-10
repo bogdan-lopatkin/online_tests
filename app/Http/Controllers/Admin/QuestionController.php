@@ -69,8 +69,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        return view('Admin.questions.edit',['question' => $this->model->find($id),
-            'tests' => Test::select('id','name')->get()]);
+        return view('Admin.questions.edit',['question' => $this->model->find($id)]);
     }
 
     /**

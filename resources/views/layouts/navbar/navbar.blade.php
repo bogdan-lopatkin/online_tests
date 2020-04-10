@@ -31,14 +31,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <ul>
-                            <li class="dropdown-item flex-column"><a href="{{ route('categories.index') }}">Все доступные тесты</a></li>
+                            <li class="dropdown-item flex-column"><a href="">Все доступные тесты</a></li>
                             @foreach($categories as $category)
                                 <li class="dropdown-item d-flex flex-column">
-                                    <a href="{{ route('categories.show',$category['id']) }}">{{ $category['name'] }}</a>
+                                    <a href="">{{ $category['name'] }}</a>
                                 <!--  <span>Сложность тестов</span>
                                     <div class="difficulty">
                                        @for($difficulty=5;$difficulty>=1;$difficulty--)
-                                    <a href="{{ route('categories.show',compact('category','difficulty')) }}">☆</a>
+                                    <a href="">☆</a>
                                         @endfor
                                     </div>-->
                                 </li>
@@ -52,14 +52,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <ul>
-                            <li class="dropdown-item flex-column"><a href="{{ route('categories.index') }}">Все доступные экзамены</a></li>
+                            <li class="dropdown-item flex-column"><a href="">Все доступные экзамены</a></li>
                             @foreach($categories as $category)
                                 <li class="dropdown-item d-flex flex-column">
-                                    <a href="{{ route('categories.show',$category['id']) }}">{{ $category['name'] }}</a>
+                                    <a href="">{{ $category['name'] }}</a>
                                 <!--  <span>Сложность тестов</span>
                                     <div class="difficulty">
                                        @for($difficulty=5;$difficulty>=1;$difficulty--)
-                                    <a href="{{ route('categories.show',compact('category','difficulty')) }}">☆</a>
+                                    <a href="">☆</a>
                                         @endfor
                                     </div>-->
                                 </li>
@@ -99,6 +99,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('home') }}">Личный кабинет</a>
+                            <a class="dropdown-item" href="{{ route('home.settings') }}">Изменить аккаунт</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

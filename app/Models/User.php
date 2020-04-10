@@ -39,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function roles()
     {
-      return $this->belongsToMany(Role::class);
+      return $this->belongsToMany(Role::class,'user_role');
     }
 
     public function tests()
@@ -72,5 +72,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getSavedTestData($userId,$testId)
     {
        return $this->find($userId)->tests()->where('test_id',$testId)->get();
+    }
+
+    public function checkRole($role_id)
+    {
+        return $this->find(auth()->id())->roles->contains($role_id);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
     }
 }

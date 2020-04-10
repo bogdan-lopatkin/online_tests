@@ -24,6 +24,7 @@ class Test extends Model
                 DB::raw('min(difficulty) as minDifficulty'),
                 DB::raw('max(difficulty) as maxDifficulty'),
                 DB::raw('count(id) as total'))
+            ->where('category_id','>',0)
             ->groupBy('category_id')
             ->get();
     }

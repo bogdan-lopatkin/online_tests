@@ -29,4 +29,8 @@ class HomeController extends Controller
     {
         return view('home',['tests' => $this->model->getUserTests(Auth::id())]);
     }
+    public function settings()
+    {
+        return view('user_settings');
+    }
 }

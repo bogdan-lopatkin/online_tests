@@ -1343,3 +1343,152 @@ trix-toolbar .trix-button-group {
     line-height: 1.4;
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    max-width: 1200px;
+    position: fixed;
+    margin: auto;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+.modal-content trix-toolbar {
+    max-width: 90%;
+    margin: auto;
+}
+
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    color: black;
+    margin-left: 20px;
+    border-bottom: 1px gray;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    color: black;
+    border-top: 1px gray;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+.write_answer {
+    border-style: dashed;
+    color: #3d4852;
+    font-size: 1.575rem;
+    border-radius: .25rem;
+    border-color: #e5e5e5;
+    padding: 30px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.write_answer-need_auth {
+    border-style: dashed;
+    color: #3d4852;
+    font-size: 1.575rem;
+    border-radius: .25rem;
+    border-color: #e5e5e5;
+    padding: 30px 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.mask_link {
+    background: none!important;
+    border: none;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #8795a1;
+    text-decoration: none;
+    cursor: pointer;
+}
+span.like,
+span.dislike {
+    cursor: pointer;
+}
+
+span.like svg {
+    fill: #ccc;
+}
+
+span.liked svg {
+    fill: #328af1;
+}
+
+
+
+#thread_title-input {
+    border: 0;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid darkgray;
+    outline: none;
+}
+#new_thread-form trix-editor {
+    border: none;
+    border-bottom: 1px solid darkgray;
+
+}

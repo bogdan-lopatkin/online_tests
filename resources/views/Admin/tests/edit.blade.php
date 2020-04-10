@@ -19,7 +19,20 @@
                 $test->difficulty, ['class' => 'form-control','min' => '5']) !!}
         {{ Form::submit('Сохранить изменения',['class' => 'btn btn-success btn-lg mt-4']) }}
         {{ Form::close() }}
-
+        @if ($errors->any())
+        <div class="">
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        @endif
     </main>
 
 
