@@ -4,7 +4,7 @@
 <div class="container">
 
 <div class="d-flex row mb-5">
-  <div class="col-1" style="color: black"><img style="max-width: 70px" src="https://img.pngio.com/png-avatar-108-images-in-collection-page-3-png-avatar-300_300.png"></div>
+    <div class="col-1" style="color: black"><a class="" href="{{ route('user.show',$thread->owner->id) }}"><img style="max-width: 70px" src="{{ asset($thread->owner->avatar_url) }}"></a></div>
   <div class="col-11"  >
       <div class="mb-4 d-flex flex-column">
           <div>
@@ -24,7 +24,7 @@
 
 @forelse($thread->answers as $answer)
     <div class="d-flex row mb-5">
-        <div class="col-1" style="color: black"><img style="max-width: 70px" src="https://img.pngio.com/png-avatar-108-images-in-collection-page-3-png-avatar-300_300.png"></div>
+        <div class="col-1" style="color: black"><a class="" href="{{ route('user.show',$answer->owner->id) }}"><img style="max-width: 70px" src="{{ asset($answer->owner->avatar_url) }}"></a></div>
         <div id="answer_container" class="col-11"  >
             <div class="d-flex flex-column">
                 <div>

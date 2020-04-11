@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserEdit;
+use App\Http\Requests\Admin\UserStore;
 use App\Models\Role;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
@@ -27,7 +30,7 @@ class UserController extends Controller
     {
         $roles = [];
         foreach (Role::select('*')->get() as $item)  $roles[$item->id] = $item->name;
-        return view('Admin.users',['users' => $this->model->select('*')->get(), 'roles' => $roles ]);
+        return view('Admin.users',['users' => $this->model->with('roles')->get(), 'roles' => $roles ]);
     }
 
     /**
@@ -37,9 +40,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = [];
-        foreach (Role::select('*')->get() as $item)  $roles[$item->id] = $item->name;
-        return view('Admin.users.add',compact('roles'));
+
+        return view('Admin.users.add')->with('roles' , Role::select('*')->get());
     }
 
     /**
@@ -48,9 +50,16 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStore $request)
     {
-        //
+        $user = $this->model->create(['name' => $request['name'],'email' => $request['email'],
+            'banned' => $request['banned'],
+            'password' => bcrypt($request['password']),
+        ]);
+        $request['confirm_email'] ? $user->email_verified_at = Carbon::yesterday() : $user->email_verified_at = null;
+        $user->save();
+        $user->updateRoles($request['role'],$user->id);
+        return redirect(URL::previous());
     }
 
     /**
@@ -72,9 +81,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $roles = [];
-        foreach (Role::select('*')->get() as $item)  $roles[$item->id] = $item->name;
-        return view('Admin.users.edit',['user' => $this->model->find($id), 'roles' => $roles]);
+        return view('Admin.users.edit',['user' => $this->model->with('roles')->find($id), 'roles' => Role::select('*')->get()]);
     }
 
     /**
@@ -84,9 +91,14 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEdit $request, $id)
     {
-        $this->model->find($id)->update(['name' => $request['name'],'email' => $request['email'],'banned' => $request['banned']]);
+       $user = $this->model->find($id);
+       $user->update(['name' => $request['name'],'email' => $request['email'],
+           'banned' => $request['banned'],
+           'password' => $request['password'] ? bcrypt($request['password']) : $user->password
+       ]);
+       $user->updateRoles($request['role'],$id);
         return redirect(URL::previous());
     }
 

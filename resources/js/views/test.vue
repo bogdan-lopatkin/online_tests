@@ -2,11 +2,11 @@
     <div v-if="!loading && !notAuthorized" @keyup.left="previousQuestion"
           @keyup.right="nextQuestion"
           tabindex="0" class="test-container">
-        <div class="testsidebar">
+        <div class="testsidebar ">
             <header>
                 <div class="site-branding">
                     <a title="OnlineTests">
-                        <img  src="https://lh3.googleusercontent.com/SYxMV8opec7S9gZeblQmDcZs6yP21JivqHUDga0oNKi1kQPVMkoKmhEQNj3mrv45dK4h-w=s164" alt="Logo">
+                        <img style="max-width:200px" src="http://onlinetests/storage/site_logo.jfif" alt="Logo">
                     </a>
                 </div>
             </header>
@@ -153,6 +153,7 @@
                                         <a class="btn btn-link" :href="restore">
                                             Забыли пароль?
                                         </a>
+                                        <div class="alert-danger pl-3" v-if="login_error">{{ login_error}}</div>
                                     </div>
                                 </div>
                             </form>
@@ -169,32 +170,6 @@
     export default {
         created() {
             this.fetchData();
-
-            // this.testData = JSON.parse(this.json_data);  // info for result controller
-            // let temp = {};
-            // temp['id'] = this.testData['id'];
-            // temp['name'] = this.testData['name'];
-            // temp['points'] = this.testData['max_points'];
-            // temp['questions'] = this.testData['questions'].length;
-            // temp['difficulty'] = this.testData['difficulty'];
-            // temp['category'] = this.testData['category']['name'];
-            // this.resultInfo = JSON.stringify(temp);
-            // temp = null;
-            //
-            // if(this.was != null) {                     // todo строгая  Проверка времени и ответов для экзаменов основанная на created_at
-            //     let temp = JSON.parse(this.was)[0];
-            //     if(temp.pivot.status === 'completed') {
-            //         this.start_button_text = 'Пройти тест еще раз';
-            //         this.testAlreadyPassed = true;
-            //         this.previousResult = temp.pivot.mark;
-            //     } else if(temp.pivot.status === 'started') {
-            //         this.currentTime = temp.pivot.time_passed;
-            //         let answers =  JSON.parse(temp.pivot.picked_answers);
-            //         this.picked = answers;
-            //        // this.currentQuestion = Object.keys(answers).length;  // Нужно ли перекидывать пользователя на последний ответ автоматически?
-            //         this.start_button_text = 'Продолжить прохождение теста';
-            //     }
-            // }
         },
         mounted() {
             // var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
@@ -228,7 +203,8 @@
                 restore : routes.restore_password,
                 email : '',
                 password : '',
-                remember : ''
+                remember : '',
+                login_error : ''
             }
         },
          computed :{
@@ -282,7 +258,8 @@
                         th.loading = false;
                     }).catch(
                     function (error) {
-                        if(error.response.status == 403)
+                        console.log(error.response);
+                        if(error.response.status == 401)
                             th.notAuthorized = true;
                     })
             },
@@ -350,6 +327,8 @@
             },
             try_login()
             {
+                let th = this;
+                th.login_error = "";
                 if(this.email && this.password && /\S+@\S+\.\S+/.test(this.email)) {
                     axios
                         .post(routes.login, {email: this.email, password: this.password, remember: this.remember})
@@ -360,7 +339,7 @@
                             }
                         }).catch(error => {
                         if(error.response.status == 422)
-                                alert('Такой пользователь не найден');
+                                th.login_error = 'Учетная запись с такими данными не найдена';
                     })
                 }
             }

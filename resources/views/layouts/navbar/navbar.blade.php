@@ -4,7 +4,8 @@
             {{ config('OnlineTests', 'OnlineTests') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggl er-icon"><img src="https://www.freelogodesign.org/file/app/client/thumb/a4cabbc8-6cff-4505-af62-53eaafd55866_200x200.png?1585223309929"></span>
+            <span class="navbar-toggl er-icon">
+                <img style="max-width: 30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,31 +17,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <ul>
-                            <li class="dropdown-item flex-column"><a href="{{ route('tests') }}">Все доступные тесты</a></li>
+                            <li class="dropdown-item flex-column"><a href="{{ route('spa') }}">Все доступные тесты</a></li>
                             @foreach($categories as $category)
                                 <li class="dropdown-item d-flex flex-column">
-                                    <a href="{{ route('tests.category',$category['id']) }}">{{ $category['name'] }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Тесты для учеников
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <ul>
-                            <li class="dropdown-item flex-column"><a href="">Все доступные тесты</a></li>
-                            @foreach($categories as $category)
-                                <li class="dropdown-item d-flex flex-column">
-                                    <a href="">{{ $category['name'] }}</a>
-                                <!--  <span>Сложность тестов</span>
-                                    <div class="difficulty">
-                                       @for($difficulty=5;$difficulty>=1;$difficulty--)
-                                    <a href="">☆</a>
-                                        @endfor
-                                    </div>-->
+                                    <a href="{{ '/tests/category/'.  $category['id'] .'/tests' }}">{{ $category['name'] }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -56,19 +36,13 @@
                             @foreach($categories as $category)
                                 <li class="dropdown-item d-flex flex-column">
                                     <a href="">{{ $category['name'] }}</a>
-                                <!--  <span>Сложность тестов</span>
-                                    <div class="difficulty">
-                                       @for($difficulty=5;$difficulty>=1;$difficulty--)
-                                    <a href="">☆</a>
-                                        @endfor
-                                    </div>-->
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Сообщество</a>
+                    <a class="nav-link" href="{{ route('forum.thread.index') }}"> Сообщество</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"> Учебные материалы</a>
@@ -84,21 +58,30 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">Войти</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">Зарегистрироваться</a>
                         </li>
                     @endif
                 @else
+                    <li class="nav-item"><img class="avatar" src="{{ asset(auth()->user()->avatar_url) }}"></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('home') }}">Личный кабинет</a>
+                            @if(auth()->user()->checkRole(3))
+                                <a class="dropdown-item" href="{{ route('home') }}">Личный кабинет</a>
+                            @endif
+                            @if(auth()->user()->checkRole(2))
+                                <a class="dropdown-item" href="{{ route('group.index') }}">Управление группой</a>
+                            @endif
+                            @if(auth()->user()->checkRole(1))
+                                <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">Админка</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('home.settings') }}">Изменить аккаунт</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

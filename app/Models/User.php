@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id','banned','time_passed'
+        'name', 'email', 'password','role_id','banned','time_passed','email_verified_at'
     ];
 
     /**
@@ -82,5 +83,24 @@ class User extends Authenticatable implements MustVerifyEmail
     public function group()
     {
         return $this->belongsTo(Group::class);
+    }
+
+    public function updateRoles($roles,$id)
+    {
+        $this->find($id)->roles()->detach();
+        foreach ($roles as $role) {
+                $this->find($id)->roles()->attach($role);
+            }
+    }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class,'owner_id');
+    }
+
+    public function humanDate($date)
+    {
+        Carbon::setLocale('ru');
+        return  $date ?  $date->diffForHumans() : 'Н/Д';
     }
 }

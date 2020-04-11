@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class SpaController extends Controller
 {
-    public function index()
+    public function index($url = null)
     {
-        return view('spa');
+        return view('spa',compact('url'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\EditUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('user_profile',['user' => User::with(['tests','threads'])->find($id)]);
     }
 
 
@@ -33,12 +34,13 @@ class UserController extends Controller
     {
        $user = User::find($id);
        $user->name = $request['name'];
-       $user->password = bcrypt($request['new_password']) ?? $user->password;
+       $user->password = $request['password'] ? bcrypt($request['password']) : $user->password;
        if($request['email']) {
            $user->email = $request['email'];
            $user->email_verified_at = null;
        }
         $user->save();
+       return redirect(URL::previous());
     }
 
 

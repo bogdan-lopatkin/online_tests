@@ -1,6 +1,5 @@
 @extends('Admin.app')
 @section('content')
-    @trixassets
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         {{ Form::open(['method' => 'PUT', 'route' => ['admin.question.update',$question->id]]) }}
         <h2>Вопрос</h2>

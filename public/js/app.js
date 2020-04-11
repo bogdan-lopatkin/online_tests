@@ -2576,9 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {//    if()
-    // this.$router.push({name : 'test_categories'})
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2977,34 +2975,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    this.fetchData(); // this.testData = JSON.parse(this.json_data);  // info for result controller
-    // let temp = {};
-    // temp['id'] = this.testData['id'];
-    // temp['name'] = this.testData['name'];
-    // temp['points'] = this.testData['max_points'];
-    // temp['questions'] = this.testData['questions'].length;
-    // temp['difficulty'] = this.testData['difficulty'];
-    // temp['category'] = this.testData['category']['name'];
-    // this.resultInfo = JSON.stringify(temp);
-    // temp = null;
-    //
-    // if(this.was != null) {                     // todo строгая  Проверка времени и ответов для экзаменов основанная на created_at
-    //     let temp = JSON.parse(this.was)[0];
-    //     if(temp.pivot.status === 'completed') {
-    //         this.start_button_text = 'Пройти тест еще раз';
-    //         this.testAlreadyPassed = true;
-    //         this.previousResult = temp.pivot.mark;
-    //     } else if(temp.pivot.status === 'started') {
-    //         this.currentTime = temp.pivot.time_passed;
-    //         let answers =  JSON.parse(temp.pivot.picked_answers);
-    //         this.picked = answers;
-    //        // this.currentQuestion = Object.keys(answers).length;  // Нужно ли перекидывать пользователя на последний ответ автоматически?
-    //         this.start_button_text = 'Продолжить прохождение теста';
-    //     }
-    // }
+    this.fetchData();
   },
   mounted: function mounted() {// var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
     // let i = 0;
@@ -3036,7 +3011,8 @@ __webpack_require__.r(__webpack_exports__);
       restore: routes.restore_password,
       email: '',
       password: '',
-      remember: ''
+      remember: '',
+      login_error: ''
     };
   },
   computed: {
@@ -3090,7 +3066,8 @@ __webpack_require__.r(__webpack_exports__);
 
         th.loading = false;
       })["catch"](function (error) {
-        if (error.response.status == 403) th.notAuthorized = true;
+        console.log(error.response);
+        if (error.response.status == 401) th.notAuthorized = true;
       });
     },
     submitResult: function submitResult() {
@@ -3158,6 +3135,9 @@ __webpack_require__.r(__webpack_exports__);
     try_login: function try_login() {
       var _this3 = this;
 
+      var th = this;
+      th.login_error = "";
+
       if (this.email && this.password && /\S+@\S+\.\S+/.test(this.email)) {
         axios.post(routes.login, {
           email: this.email,
@@ -3170,7 +3150,7 @@ __webpack_require__.r(__webpack_exports__);
             _this3.fetchData();
           }
         })["catch"](function (error) {
-          if (error.response.status == 422) alert('Такой пользователь не найден');
+          if (error.response.status == 422) th.login_error = 'Учетная запись с такими данными не найдена';
         });
       }
     }
@@ -24254,7 +24234,7 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "testsidebar" }, [
+          _c("div", { staticClass: "testsidebar " }, [
             _vm._m(0),
             _vm._v(" "),
             _c("aside", { staticClass: "quiz-info" }, [
@@ -24741,7 +24721,13 @@ var render = function() {
                               "\n                                        Забыли пароль?\n                                    "
                             )
                           ]
-                        )
+                        ),
+                        _vm._v(" "),
+                        _vm.login_error
+                          ? _c("div", { staticClass: "alert-danger pl-3" }, [
+                              _vm._v(_vm._s(_vm.login_error))
+                            ])
+                          : _vm._e()
                       ])
                     ])
                   ]
@@ -24761,9 +24747,9 @@ var staticRenderFns = [
       _c("div", { staticClass: "site-branding" }, [
         _c("a", { attrs: { title: "OnlineTests" } }, [
           _c("img", {
+            staticStyle: { "max-width": "200px" },
             attrs: {
-              src:
-                "https://lh3.googleusercontent.com/SYxMV8opec7S9gZeblQmDcZs6yP21JivqHUDga0oNKi1kQPVMkoKmhEQNj3mrv45dK4h-w=s164",
+              src: "http://onlinetests/storage/site_logo.jfif",
               alt: "Logo"
             }
           })
@@ -24878,61 +24864,59 @@ var render = function() {
       "div",
       { staticClass: "courses row" },
       _vm._l(_vm.testCategories, function(category) {
-        return _c("div", { staticClass: "course-wrapper col-4" }, [
-          _c("article", { staticClass: "course-item" }, [
-            _c(
-              "div",
-              { staticClass: "course-item__grouped" },
-              [
-                _c("div", { staticClass: "course-item__details" }, [
-                  _c("h1", [
-                    _vm._v(
-                      " " +
-                        _vm._s(
-                          category.category["name"] || "Произошла ошибка"
-                        ) +
-                        "   "
-                    )
+        return _c(
+          "div",
+          { staticClass: "course-wrapper col-lg-4 col-md-6 col-sm-12" },
+          [
+            _c("article", { staticClass: "course-item" }, [
+              _c(
+                "div",
+                { staticClass: "course-item__grouped" },
+                [
+                  _c("div", { staticClass: "course-item__details" }, [
+                    _c("h1", [
+                      _vm._v(" " + _vm._s(category.category["name"]) + "   ")
+                    ]),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(
+                        "\n                            Уровень: от " +
+                          _vm._s(_vm.difficulty[category.minDifficulty]) +
+                          "\n                            до " +
+                          _vm._s(_vm.difficulty[category.maxDifficulty]) +
+                          "\n                        "
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("small", [
-                    _vm._v(
-                      "\n                            Уровень: от " +
-                        _vm._s(_vm.difficulty[category.minDifficulty]) +
-                        "\n                            до " +
-                        _vm._s(_vm.difficulty[category.maxDifficulty]) +
-                        "\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "course-item__level" }, [
-                  _c("h5", [_vm._v(_vm._s(category.total))]),
+                  _c("div", { staticClass: "course-item__level" }, [
+                    _c("h5", [_vm._v(_vm._s(category.total))]),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "mb-3" }, [_vm._v("тестов")])
+                  ]),
                   _vm._v(" "),
-                  _c("small", { staticClass: "mb-3" }, [_vm._v("тестов")])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-medium btn-primary",
-                    attrs: {
-                      to: {
-                        name: "tests",
-                        params: { categoryId: category.category_id }
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-medium btn-primary",
+                      attrs: {
+                        to: {
+                          name: "tests",
+                          params: { categoryId: category.category_id }
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-                    _vm._v("Перейти к тестам\n                    ")
-                  ]
-                )
-              ],
-              1
-            )
-          ])
-        ])
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+                      _vm._v("Перейти к тестам\n                    ")
+                    ]
+                  )
+                ],
+                1
+              )
+            ])
+          ]
+        )
       }),
       0
     )

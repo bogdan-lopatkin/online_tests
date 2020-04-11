@@ -12,16 +12,21 @@
                     <th>Почта подтверждена</th>
                     <th>Роль</th>
                     <th>Состояние</th>
+                    <th>Зарегистрирован</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                <tr> 
+                <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->email_verified_at ? 'Да' : 'Нет' }}</td>
-                    <td>{{ $roles[$user->role_id] }}</td>
+                    <td>
+                    @foreach($user->roles as $role)
+                           <div> {{ $roles[$role->pivot->role_id] }} </div>
+                    @endforeach
+                    </td>
                     <td>{{ $user->banned ? 'Забанен' : 'Активен' }}</td>
                     <td>{{ $user->created_at }}</td>
 

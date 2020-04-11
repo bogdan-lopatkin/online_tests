@@ -6,7 +6,7 @@
     <h2>Последние созданные темы <a id="add_new-thread" class="btn-secondary btn-lg ">Добавить новую</a></h2>
     @foreach($threads as $thread)
     <div class="justify-content-start mt-5 d-flex align-items-center">
-        <span><img style="max-width: 70px" class="mr-5" src="https://img.pngio.com/png-avatar-108-images-in-collection-page-3-png-avatar-300_300.png"></span>
+        <span><a class="" href="{{ route('user.show',$thread->owner->id) }}"><img style="max-width: 70px" class="mr-5" src="{{ asset($thread->owner->avatar_url) }}"></a></span>
         <div class="d-flex flex-column">
             <h3><a class="" style="color:black" href="{{ route('forum.thread.show',$thread->id) }}">{{ $thread->name }}</h3>
             <div>

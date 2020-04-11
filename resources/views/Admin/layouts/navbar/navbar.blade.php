@@ -3,7 +3,7 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Найти" aria-label="Найти">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Выйти из админки</a>
+            <a class="nav-link" href="/">Выйти из админки</a>
         </li>
     </ul>
 </nav>

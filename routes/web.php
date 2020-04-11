@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 
    // SPA controller
-    Route::get('/tests{any}', 'SpaController@index')->where('any', '.*');
+    Route::get('/tests{any?}', 'SpaController@index')->where('any', '.*')->name('spa');
 
 
 
@@ -44,8 +44,8 @@ Route::group(['namespace' => 'Test', 'prefix' => 'api'], function() {
     Route::get('/{category}/', 'TestController1@showCategory')->name('tests.category');
     Route::get('/search', 'TestController1@showSearched')->name('tests.search');
 });
-Route::get('/test/{test_id}', 'Test\TestController1@startTest')->name('test')->middleware(['verified','checkIfBanned']);
-Route::post('result','Test\ResultController')->name('showResult')->middleware(['verified','checkIfBanned']);
+Route::get('/test/{test_id}', 'Test\TestController1@startTest')->name('test')->middleware(['auth','checkIfBanned']);
+Route::post('result','Test\ResultController')->name('showResult')->middleware(['auth','checkIfBanned']);
 
 
 
@@ -90,6 +90,7 @@ Route::group(['namespace' => 'Forum', 'prefix' => 'forum','as' => 'forum.'], fun
 Route::post('/api/test/save','API\SaveTestController');
 Route::post('/api/file/upload','API\FileController@store')->name('img.upload');
 Route::post('/api/file/delete','API\FileController@destroy')->name('img.destroy');
+Route::post('/api/file/upload','API\FileController@storeAvatar')->name('avatar.upload');
 
 
 });

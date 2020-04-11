@@ -20,11 +20,11 @@
 
 
         <div class="courses row">
-            <div v-for="category in testCategories" class="course-wrapper col-4">
+            <div v-for="category in testCategories" class="course-wrapper col-lg-4 col-md-6 col-sm-12">
                 <article class="course-item">
                     <div class="course-item__grouped">
                         <div class="course-item__details">
-                            <h1> {{ category.category['name'] || 'Произошла ошибка' }}   </h1>
+                            <h1> {{ category.category['name'] }}   </h1>
 
                             <small>
                                 Уровень: от {{ difficulty[category.minDifficulty] }}

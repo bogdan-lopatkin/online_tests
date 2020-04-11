@@ -6,8 +6,8 @@
 <script>
     export default {
         mounted() {
-        //    if()
-           // this.$router.push({name : 'test_categories'})
+
+
         }
     }
 </script>
