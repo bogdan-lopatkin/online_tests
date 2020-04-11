@@ -5,36 +5,8 @@
       <change afterPath="$PROJECT_DIR$/../localhost/.idea/localhost.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SpaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SpaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/User/EditUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/User/EditUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/test_categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/test_categories.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/layouts/navbar/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/layouts/navbar/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/questions/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/users/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/users/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Forum/result.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Forum/test.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Forum/thread.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Forum/thread.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Forum/threads.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Forum/threads.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/footer/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +177,7 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="459880000" />
+      <workItem from="1585375697048" duration="465704000" />
     </task>
     <servers />
   </component>
@@ -265,10 +237,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586448837882" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586354395503">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586624142481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586354395503" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586624142481" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586513878264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

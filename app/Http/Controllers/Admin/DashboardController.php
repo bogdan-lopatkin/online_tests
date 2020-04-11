@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserTest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class  DashboardController extends Controller
@@ -15,7 +18,24 @@ class  DashboardController extends Controller
      */
     public function index()
     {
-        return view('Admin.dashboard');
+     //   $dates = collect();
+//
+         $date = Carbon::now()->addDays( -7 )->format( 'Y-m-d' );
+         $stat = UserTest::where([['created_at','>=',$date],['status','completed']])
+              ->get()
+              ->groupBy(function($date) {
+                    return Carbon::parse($date->created_at)->format('d');
+        });
+         $data = ['1' => 0,'2' => 0,'3' => 0,'4' => 0,'5' => 0,'6' => 0,'7' => 0];
+        foreach ($stat as $s)
+        {
+//            echo $s[0]->created_at->dayOfWeek ;
+//        echo  $s;
+//           echo   $s->count();
+//            echo '<br>';
+            $data[$s[0]->created_at->dayOfWeek] = $s->count('*');
+        }
+        return view('Admin.dashboard',['data' => json_encode(array_values($data))]);
     }
 
     /**
