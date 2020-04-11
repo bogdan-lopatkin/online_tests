@@ -6,9 +6,6 @@
       <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/QuestionConstructorComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/QuestionConstructorComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -182,7 +179,7 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="474055000" />
+      <workItem from="1585375697048" duration="476442000" />
     </task>
     <servers />
   </component>
@@ -226,10 +223,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585588594961" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1585153751083">
+    <state x="461" y="163" key="SettingsEditor" timestamp="1586639024098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585153751083" />
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586639024098" />
     <state x="681" y="261" width="570" height="524" key="StructurePopup" timestamp="1586168604881">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,6 +239,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586448837882" />
+    <state x="830" y="414" key="publish.login" timestamp="1586638650640">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="830" y="414" key="publish.login/0.0.1920.1040@0.0.1920.1040" timestamp="1586638650640" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586624142481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

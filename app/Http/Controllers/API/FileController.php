@@ -22,8 +22,8 @@ class FileController extends Controller
     public function destroy(Request $request)
     {
         foreach ($request->json()->all() as $file)
-            if(Storage::disk('public')->exists($file))
-                Storage::disk('public')->delete($file);
+            if(Storage::disk('s3')->exists($file))
+                Storage::disk('s3')->delete($file);
     }
 
     public function storeAvatar(Request $request)
