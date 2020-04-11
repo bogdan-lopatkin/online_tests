@@ -284,7 +284,7 @@
                             this.imgPath = response.data;
                             this.deleteList.push(this.imgPath);
                             let attributes = {
-                                url: "http://onlinetests/storage/" + this.imgPath,
+                                url: "https://onlinetests1.s3.us-east-2.amazonaws.com/" + this.imgPath,
                                 href:  this.imgPath,
                             };
                             event.attachment.setAttributes(attributes);

@@ -2501,7 +2501,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this2.deleteList.push(_this2.imgPath);
 
           var attributes = {
-            url: "http://onlinetests/storage/" + _this2.imgPath,
+            url: "https://onlinetests1.s3.us-east-2.amazonaws.com/" + _this2.imgPath,
             href: _this2.imgPath
           };
           event.attachment.setAttributes(attributes);

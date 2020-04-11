@@ -4,17 +4,11 @@
     <list default="true" id="92e0a141-6783-4bb9-827e-f2da3480c044" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../localhost/.idea/localhost.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/online_tests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online_tests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Forum/thread.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Forum/thread.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Forum/threads.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Forum/threads.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/QuestionConstructorComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/QuestionConstructorComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +182,7 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="473218000" />
+      <workItem from="1585375697048" duration="474055000" />
     </task>
     <servers />
   </component>

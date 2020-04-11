@@ -15,7 +15,8 @@ class FileController extends Controller
     public function store(StoreFile $request)
     {
         $testId = Test::select('id')->get()->max()->id;
-        return $request->file('file')->store('test_' . $testId,'public');
+       // return $request->file('file')->store('test_' . $testId,'public');
+        return Storage::disk('s3')->put('test_' . $testId, $request->file('file'));
     }
 
     public function destroy(Request $request)

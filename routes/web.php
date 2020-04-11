@@ -90,7 +90,7 @@ Route::group(['namespace' => 'Forum', 'prefix' => 'forum','as' => 'forum.'], fun
 Route::post('/api/test/save','API\SaveTestController');
 Route::post('/api/file/upload','API\FileController@store')->name('img.upload');
 Route::post('/api/file/delete','API\FileController@destroy')->name('img.destroy');
-Route::post('/api/file/upload','API\FileController@storeAvatar')->name('avatar.upload');
+Route::post('/api/file/avatar','API\FileController@storeAvatar')->name('avatar.upload');
 
 
 });
