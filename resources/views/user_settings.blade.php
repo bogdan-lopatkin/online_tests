@@ -20,7 +20,7 @@
 
         <h4 class="pt-5">Аватар</h4>
             {{ Form::open(['method' => 'POST', 'route' => ['avatar.upload'],'id' => 'photo_form', 'class' => 'd-flex justify-content-center',  'files' => true]) }}
-            <img class="avatar_change"  src="{{ asset(auth()->user()->avatar_url) }}">
+            <img class="avatar_change"  src="{{ Storage::url(auth()->user()->avatar_url) }}">
             {!! Form::file('img',['id' => 'select_button' , 'style' => 'visibility : hidden','accept' => "image/x-png,image/gif,image/jpeg" ]) !!}
             {!! Form::close() !!}
 

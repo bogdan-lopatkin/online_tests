@@ -27,9 +27,11 @@ class FileController extends Controller
 
     public function storeAvatar(Request $request)
     {
-        $url = $request->file('img')->store('Avatars' ,'public');
+        $url = Storage::disk('s3')->put('/storage/Avatars', $request->file('img'));
+
+      //  $url = $request->file('img')->store('Avatars' ,'public');
         $user = User::find(auth()->id());
-        $user->avatar_url  = 'storage/' . $url;
+        $user->avatar_url  =  $url;
         $user->save();
         return redirect(URL::previous());
     }
