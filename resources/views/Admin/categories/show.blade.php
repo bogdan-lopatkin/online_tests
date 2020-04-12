@@ -2,6 +2,7 @@
 @section('content')
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        {{ Breadcrumbs::render('category.show',$category) }}
         <h2>Тесты в категории {{ $category->name }} <a class="btn btn-dark" href="{{ route('admin.test.create') }}">Добавить новый тест</a></h2>
         <div class="table-responsive">
             <table class="table text-center table-striped table-sm">
@@ -41,3 +42,4 @@
         </div>
     </main>
 @endsection
+

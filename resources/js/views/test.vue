@@ -259,8 +259,10 @@
                     }).catch(
                     function (error) {
                         console.log(error.response);
-                        if(error.response.status == 401)
+                        if(error.response.status == 401) {
                             th.notAuthorized = true;
+                            th.loading = false;
+                        }
                     })
             },
             submitResult()

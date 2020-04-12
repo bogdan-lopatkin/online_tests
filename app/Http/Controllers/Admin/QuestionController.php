@@ -35,7 +35,9 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('Admin.questions.add');
+        $tests = [];
+        foreach (Test::select('id','name')->get() as $test) $tests[$test->id] = $test->name;
+        return view('Admin.questions.add')->with('tests',$tests);
     }
 
     /**
@@ -46,7 +48,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->model->create(['name' => $request['name']]);
+        $this->model->create(['question_body' => $request['description'],'test_id' => $request['test_id']]);
         return redirect(route('admin.question.index'));
     }
 

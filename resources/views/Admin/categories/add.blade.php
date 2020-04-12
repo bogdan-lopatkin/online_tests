@@ -2,6 +2,7 @@
 @section('content')
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        {{ Breadcrumbs::render('categories.add') }}
         <h2 class="text-center">Добавление новой категории</h2>
         <form class="d-flex justify-content-center" method="post" action="{{ route('admin.category.store') }}">
             @csrf

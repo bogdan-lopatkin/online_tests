@@ -2,7 +2,8 @@
 @section('content')
 
     <main  role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <div id="app">
+        {{ Breadcrumbs::render('tests.add') }}
+        <div >
             <question-constructor
                 :categories="{{ \App\Models\Category::select()->get() }}"
                 save_route="{{ route('admin.test.store') }}"

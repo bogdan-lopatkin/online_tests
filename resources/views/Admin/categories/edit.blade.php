@@ -2,6 +2,7 @@
 @section('content')
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        {{ Breadcrumbs::render('category.edit',$category) }}
         <h2 class="text-center">Редактирование категории</h2>
             {{ Form::open(['method' => 'PUT', 'route' => ['admin.category.update', $category->id]]) }}
             @csrf

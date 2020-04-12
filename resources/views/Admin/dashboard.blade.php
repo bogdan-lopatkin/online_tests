@@ -1,7 +1,26 @@
-@extends('Admin.app') @section('content')
 
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>DashBoard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css" rel="stylesheet">
+
+</head>
+<body>
+    @include('Admin.layouts.navbar.navbar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                {{ Breadcrumbs::render('admin') }}
+
                 <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
                     <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
                         <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
@@ -17,22 +36,26 @@
                 <canvas class="my-4 chartjs-render-monitor chart-container" id="myChart" width="1064" height="449" style="display: block; width: 1064px; height: 449px;"></canvas>
 
             </main>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-          <script>
-              var ctx = document.getElementById('myChart').getContext('2d');
-              var myLineChart = new Chart(ctx, {
-                  type: 'line',
-                  data: {
-                      labels: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница','Суббота', 'Воскресенье'],
-                      datasets: [{
-                          label: 'Количество завершенных тестов на этой неделе',
-                          data: {{ $data }}
-                      }]
-                  },
 
 
-              });
 
-                          </script>
-@endsection
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница','Суббота', 'Воскресенье'],
+                datasets: [{
+                    label: 'Количество завершенных тестов на этой неделе',
+                    data: {{ $data }}
+                }]
+            },
 
+
+        });
+
+    </script>
+</body>
+@include('Admin.layouts.sidebar.sidebar')
+
+</html>

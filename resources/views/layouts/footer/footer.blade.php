@@ -15,17 +15,17 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-top__box about-us">
                         <h6>О проекте</h6>
-                        <p>Что-то о проекте ..........</p>
+                        <p>Проект для защиты</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-top__box social-box">
                         <h6>Подпишитесь на нас</h6>
                         <ul>
-                            <li><a href="https://www.facebook.com/" class="social-button facebook" target="_blank"></a>Сделать иконку</li>
-                            <li><a href="https://twitter.com/" class="social-button twitter" target="_blank"></a>Сделать иконку</li>
-                            <li><a href="https://www.linkedin.com/" class="social-button linkedin" target="_blank"></a>Сделать иконку</li>
-                            <li><a href="https://plus.google.com" class="social-button google" target="_blank"></a>Сделать иконку</li>
+                            <li><a href="https://www.facebook.com/" class="social-button facebook" target="_blank"></a><i class="fab fa-facebook-square"></i>Сделать иконку</li>
+                            <li><a href="https://twitter.com/" class="social-button twitter" target="_blank"></a><i class="fab fa-twitter-square"></i>Сделать иконку</li>
+                            <li><a href="https://www.linkedin.com/" class="social-button telegram" target="_blank"></a><i class="fab fa-telegram-plane"></i>Сделать иконку</li>
+                            <li><a href="https://plus.google.com" class="social-button google" target="_blank"></a><i class="fab fa-google-plus-square"></i>Сделать иконку</li>
                         </ul>
                     </div>
                 </div>
@@ -43,10 +43,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                        © 2020 Мой проект <a href="#">Страница с инфой</a> |
-                        <a href="#">Что-то про проект</a> |
-                        <a href="#">Соглашение пользователя</a> |
-                        <a href="#">Еще что-то?</a>
+                        © 2020 Мой проект
                     </p>
                 </div>
             </div>

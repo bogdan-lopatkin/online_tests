@@ -1,13 +1,6 @@
 @extends('Admin.app') @section('content')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
-
-
-
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
+        {{ Breadcrumbs::render('tests') }}
         <h2>Тесты <a class="btn btn-dark" href="{{ route('admin.test.create') }}">Добавить</a></h2>
         <div class="table-responsive">
             <table class="table text-center table-striped table-sm">

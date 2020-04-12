@@ -3067,7 +3067,11 @@ __webpack_require__.r(__webpack_exports__);
         th.loading = false;
       })["catch"](function (error) {
         console.log(error.response);
-        if (error.response.status == 401) th.notAuthorized = true;
+
+        if (error.response.status == 401) {
+          th.notAuthorized = true;
+          th.loading = false;
+        }
       });
     },
     submitResult: function submitResult() {
