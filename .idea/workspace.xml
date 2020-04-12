@@ -4,8 +4,14 @@
     <list default="true" id="92e0a141-6783-4bb9-827e-f2da3480c044" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../localhost/.idea/localhost.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/FileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/test.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +147,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
@@ -153,11 +159,11 @@
       <recent name="D:\openserv\OSPanel\domains\online_tests\app\Http\Controllers\Test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\lang" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\js\views" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\js" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Forum" />
-      <recent name="D:\openserv\OSPanel\domains\online_tests\app\Http\Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -179,7 +185,7 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="476442000" />
+      <workItem from="1585375697048" duration="481711000" />
     </task>
     <servers />
   </component>
@@ -247,9 +253,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586624142481" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586513878264">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586679047514">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586513878264" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586679047514" />
   </component>
 </project>

@@ -3048,7 +3048,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response.data.savedData[0] != null) {
           // todo строгая  Проверка времени и ответов для экзаменов основанная на created_at
-          var _temp = response.data.savedData[0]; //  JSON.parse(this.was)[0];
+          var _temp = response.data.savedData[0];
 
           if (_temp.pivot.status === 'completed') {
             _this.start_button_text = 'Пройти тест еще раз';
@@ -3105,8 +3105,6 @@ __webpack_require__.r(__webpack_exports__);
     countDownTimer: function countDownTimer() {
       var _this2 = this;
 
-      //  this.testform();
-      //  this.testform('ll');
       if (this.currentTime < this.testData['max_time'] * 60) {
         setTimeout(function () {
           _this2.currentTime++;
@@ -3130,7 +3128,8 @@ __webpack_require__.r(__webpack_exports__);
       return true;
     },
     countUnanswered: function countUnanswered() {
-      return this.testData.questions.length - Object.keys(this.picked).length;
+      var x = this.testData.questions.length - Object.keys(this.picked).length;
+      if (x < 0) return 0;else return this.testData.questions.length - Object.keys(this.picked).length;
     },
     try_login: function try_login() {
       var _this3 = this;
@@ -3170,7 +3169,10 @@ __webpack_require__.r(__webpack_exports__);
       if (time < 10) time = '0' + time;
       return minute + ':' + time;
     },
-    validateRawHTML: function validateRawHTML(str) {}
+    validateRawHTML: function validateRawHTML(str) {},
+    limitOutput: function limitOutput(num, limit) {
+      if (num > limit) return limit;else return num;
+    }
   },
   components: {
     PicZoom: vue_piczoom__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -24274,10 +24276,16 @@ var render = function() {
                 _c("div", { staticClass: "value" }, [
                   _c("i", { staticClass: "far fa-question-circle" }),
                   _vm._v(" "),
-                  _c("span", {
-                    staticClass: "current",
-                    domProps: { innerHTML: _vm._s(_vm.currentQuestion) }
-                  }),
+                  _c("span", { staticClass: "current" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm._f("limitOutput")(
+                          _vm.currentQuestion,
+                          _vm.testData.questions.length
+                        )
+                      )
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "total" }, [
                     _vm._v(" / " + _vm._s(_vm.testData.questions.length))
@@ -24529,7 +24537,8 @@ var render = function() {
           ])
         ]
       )
-    : _c("div", { staticClass: "container" }, [
+    : !_vm.loading
+    ? _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-md-8" }, [
             _c("div", { staticClass: "card" }, [
@@ -24737,6 +24746,7 @@ var render = function() {
           ])
         ])
       ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {

@@ -28,7 +28,7 @@
                     <div  class="label">Вопрос</div>
                     <div  class="value">
                         <i  class="far fa-question-circle"></i>
-                        <span v-html="currentQuestion"  class="current"></span>
+                        <span  class="current">{{ currentQuestion | limitOutput(testData.questions.length) }}</span>
                         <span  class="total"> / {{ testData.questions.length }}</span>
                     </div>
                     <div  class="progress-bar" progressbar><span  :style="{ width : questionProgress+'%' }"></span></div>
@@ -52,7 +52,7 @@
             <div v-if="testEnded"  class="quiz-info-container">
                 <div >Готовы отправить свой результат?</div>
                 <div class="mt-3">
-                    <div >У вас <b>{{ countUnanswered() }}</b> неотвеченных вопросов. Нажмите назад что бы еще раз проверить свои ответы или завершить тест что бы узнать свой результат.</div>
+                    <div >У вас <b>{{ countUnanswered()  }}</b> неотвеченных вопросов. Нажмите назад что бы еще раз проверить свои ответы или завершить тест что бы узнать свой результат.</div>
                 </div>
             </div>
              <form ref="form" id="test_form" method="post" onsubmit="return false;" class="quiz-question-container">
@@ -100,7 +100,7 @@
                 </form>
         </main>
     </div>
-    <div v-else class="container">
+    <div v-else-if="!loading" class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
@@ -241,7 +241,7 @@
                         temp = null;
 
                         if(response.data.savedData[0] != null) {                     // todo строгая  Проверка времени и ответов для экзаменов основанная на created_at
-                            let temp =  response.data.savedData[0];  //  JSON.parse(this.was)[0];
+                            let temp =  response.data.savedData[0];
                             if (temp.pivot.status === 'completed') {
                                 this.start_button_text = 'Пройти тест еще раз';
                                 this.testAlreadyPassed = true;
@@ -297,8 +297,6 @@
                 }
             },
             countDownTimer() {
-              //  this.testform();
-              //  this.testform('ll');
                 if (this.currentTime < this.testData['max_time'] * 60) {
                     setTimeout(() => {
                         this.currentTime++;
@@ -323,7 +321,11 @@
                 return true;
             },
             countUnanswered() {
-                return this.testData.questions.length - Object.keys(this.picked).length;
+                let x = this.testData.questions.length - Object.keys(this.picked).length;
+                    if(x < 0)
+                        return 0;
+                    else
+                        return this.testData.questions.length - Object.keys(this.picked).length;
             },
             try_login()
             {
@@ -362,7 +364,14 @@
             },
             validateRawHTML : function (str) {
 
+            },
+            limitOutput : function (num,limit) {
+                if(num > limit)
+                    return limit;
+                else
+                    return num;
             }
+
         },
         components : {
             PicZoom
