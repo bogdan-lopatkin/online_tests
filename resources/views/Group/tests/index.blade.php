@@ -5,26 +5,17 @@
         <div class="table-responsive">
             <table id="example" class="table table-striped table-sm text-center">
                 <thead>
-                <form method="get" action="{{ route('group.tests.index') }}">
-                    @if( Request::get("param") != 'desc' )
-                        <input type="hidden" name="param" value="desc">
-                    @else
-                        <input type="hidden" name="param" value="asc">
-                    @endif
                     <tr>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'id'  }}">#</button></th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'name' }}">Название</button></th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'questions' }}">Количество вопросов</button> </th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'difficulty' }}">Сложность</button></th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'max_time' }}">Время на выполнение</button>  </th>
-                        <th><button class="btn btn-link" type="submit" name="orderBy" value="{{ 'created_at' }}">Создан</button></th>
-                        <th></th>
+                        <th>#</th>
+                        <th>Название</th>
+                        <th>Количество вопросов </th>
+                        <th>Сложность</th>
+                        <th>Время на выполнение  </th>
+                        <th>Создан</th>
                         <th></th>
                         <th></th>
                     </tr>
-                </form>
                 </thead>
-
                 <tbody>
                 @foreach($group->tests()->paginate(10) as $test)
                     <tr>
@@ -34,7 +25,6 @@
                         <td>{{ $test->difficulty }}</td>
                         <td>{{ $test->max_time }}</td>
                         <td>{{ $test->created_at }}</td>
-                        <td><a class="btn btn-outline-primary" href="{{ route('group.tests.show',$test->id) }}">Подробнее</a> </td>
                         <td><a class="btn btn-outline-info" href="{{ route('group.tests.edit',$test->id) }}">Редактировать</a></td>
                         <td>
                             {{ Form::open(['method' => 'DELETE', 'route' => ['group.tests.destroy', $test->id]]) }}

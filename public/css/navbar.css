@@ -1203,7 +1203,11 @@ footer#page-footer .footer-top .row > div {
     border-right: 1px solid #e7e8e8;
 }
 footer#page-footer .footer-top .row > div:first-of-type {
-    padding-left: 6.81rem;
+    padding-left: 1.81rem;
+    list-style: none;
+}
+ul {
+    list-style: none;
 }
 footer#page-footer #copyright {
     margin-left: -15px;
@@ -1502,6 +1506,16 @@ span.liked svg {
      .quiz-info-container {
         padding-bottom: 145px;
     }
+    footer#page-footer .footer-top .row > div ul {
+        padding-left: 20px;
+    }
+
+    footer#page-footer .footer-top .row > div {
+        padding-left: 0.81rem!important;
+    }
+    .skv-heading h1 {
+        font-size: 1.8rem;
+    }
 }
 
 @media all and (max-width: 1000px) {
@@ -1609,4 +1623,13 @@ span.liked svg {
     max-width: 40px;
     min-height: 40px;
     min-width: 40px;
+}
+.social-box i{
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+.social-box ul {
+    padding: 0;
+    display: flex;
 }

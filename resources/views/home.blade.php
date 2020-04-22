@@ -16,6 +16,12 @@
             <a href="{{ route('group.index') }}">Просмотреть учеников</a>
         @endteacher
 
+        @if(auth()->user()->group_id)
+            <div class="w-100 pb-5">
+                <h2 class="text-center pb-2"> Вы состоите в группе  {{ auth()->user()->group->name }} </h2>
+                <a href="{{ route('group.index') }}" class="btn w-25 btn-primary  ">Перейти к группе</a>
+            </div>
+            @endif
         <h2>Ваши тесты</h2>
         <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -55,7 +61,7 @@
                         <td></td>
                     @elseif($test->pivot->status === 'started')
                                 Начат
-                            <td><a class="btn btn-primary" href="{{ route('test',$test->id )}}">Продолжить прохождение</a></td>
+                            <td><a class="btn btn-primary" href="/tests/test/{{$test->id}}">Продолжить прохождение</a></td>
 
                         @endif
                     </tr>

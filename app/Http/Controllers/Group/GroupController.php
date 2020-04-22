@@ -18,7 +18,7 @@ class GroupController extends Controller
 
     public function index()
     {
-        return view('Group.main')->with('group',$this->model->find(1));
+        return view('Group.main')->with('group',$this->model->find(auth()->user()->group_id));
     }
 
     public function update(Request $request)

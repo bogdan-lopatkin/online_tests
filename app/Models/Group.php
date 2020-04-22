@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    protected $fillable = ['name','owner_id'];
+    protected $fillable = ['name','owner_id','ref_link'];
     public $timestamps = false;
 
     public function members()

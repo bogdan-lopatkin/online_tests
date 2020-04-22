@@ -22,7 +22,7 @@ class HomeworkController extends Controller
      */
     public function index()
     {
-        return view('Group.homework.index')->with('group',$this->model->find(1));
+        return view('Group.homework.index')->with('group',$this->model->find(auth()->user()->group_id));
     }
 
     /**

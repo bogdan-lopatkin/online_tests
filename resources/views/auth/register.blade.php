@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         @if($group)
-                            <input type="hidden" value="{{ $group }}">
+                            <input type="hidden" name="group_id" value="{{ $group->id }}">
                         @endif
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Имя</label>
@@ -47,7 +47,9 @@
                                 <select id="inputState" name="role_id" class="form-control">
                                     @if(!$group)
                                         @foreach($roles as $role)
-                                            <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+                                            @if($role->id != 1)
+                                                <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+                                            @endif
                                         @endforeach
                                     @else
                                         <option value="{{ $roles[2]->id }}" selected>{{ $roles[2]->name }}</option>
@@ -59,7 +61,7 @@
                             <div id="group_name" class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Название группы</label>
                                 <div class="col-md-6">
-                                    <input disabled id="group_name-input" type="text" class="form-control" value="{{ $group }}" name="group_name">
+                                    <input disabled id="group_name-input" type="text" class="form-control" value="{{ $group->name }}" name="group_name">
                                 </div>
                             </div>
                         @else

@@ -34,7 +34,7 @@
         </div>
         <div class="d-flex flex-column">
             <h4 class="pt-3 pr-5">E-mail</h4>
-            {!! Form::text('email',auth()->user()->email,['class' => 'form-control']) !!}
+            {!! Form::text('email',auth()->user()->email,['class' => 'form-control ','required', 'autocomplete'=> "email"]) !!}
         </div>
         <div class="d-flex flex-column">
             <h4 class="pt-3 pr-5">Изменить пароль</h4>

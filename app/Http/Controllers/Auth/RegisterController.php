@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use http\Env\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -76,12 +77,17 @@ class RegisterController extends Controller
        if($data['role_id'] == 2) {
          $group = Group::create([
                'name' => $data['group_name'],
-               'owner_id' => $user->id
+               'owner_id' => $user->id,
        ]);
+
           $user = \App\Models\User::find($user->id);
           $user->group_id = $group->id;
           $user->save();
+          $group->ref_link = bcrypt($group->id);
+          $group->save();
            }
+           $user->group_id = $data['group_id'] ?? 0;
+           $user->save();
         return $user;
     }
 }

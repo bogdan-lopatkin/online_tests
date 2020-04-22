@@ -6,14 +6,13 @@
         <h2 class="text-center pt-5">Профиль {{ $user->name }}</h2>
 
         <div class="d-flex">
-            <img class="avatar_change"  src="{{ asset($user->avatar_url) }}">
+            <img class="avatar_change"  src="{{ Storage::url($user->avatar_url) }}">
             <div class="pt-4 pl-5">
                 <h4>Логин - {{ $user->name }}</h4>
                 <h4>Email - {{ $user->email }}</h4>
                 <h4>Зарегистрирован {{ $user->humanDate($user->created_at) }}</h4>
             </div>
         </div>
-
         <div>
             <div class="row">
                 <div class="col-6">
@@ -21,7 +20,6 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-sm">
                             <thead>
-                            <form method="get" action="{{ route('admin.test.index') }}">
                                 <tr>
                                     <th>#</th>
                                     <th>Название</th>
@@ -30,10 +28,9 @@
                                     <th>Баллов набрано</th>
                                     <th>Статус</th>
                                 </tr>
-                            </form>
                             </thead>
                             <tbody>
-                            @foreach($user->tests as $test)
+                            @forelse($user->tests as $test)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td class="text-break">{{ $test->name }}</td>
@@ -55,18 +52,19 @@
                                         Начат
                                     </td>
                                     @endif
+                                    @empty
+                                        <h3 class="pb-3 text-danger">Пользователь пока не проходил тесты</h3>
                                 </tr>
-                            @endforeach
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
-
                 </div>
                 <div class="col-6">
-                    <h2>Темы пользователя</h2>
-                    @foreach($user->threads as $thread)
+                    <h2 class="text-center">Темы пользователя</h2>
+                    @forelse($user->threads as $thread)
                         <div class="justify-content-start mt-5 d-flex align-items-center">
-                            <span><img style="max-width: 70px" class="mr-5" src="{{ asset($thread->owner->avatar_url) }}"></span>
+                            <span><img style="max-width: 70px" class="mr-5" src="{{ Storage::url($thread->owner->avatar_url) }}"></span>
                             <div class="d-flex flex-column">
                                 <h3><a class="" style="color:black" href="{{ route('forum.thread.show',$thread->id) }}">{{ $thread->name }}</h3>
                                 <div>
@@ -75,13 +73,13 @@
                                 </div>
                             </div>
                         </div>
-
-                    @endforeach
+                    @empty
+                        <h3 class="pb-3 text-danger">Пользователь пока не создавал тем</h3>
+                    @endforelse
                 </div>
             </div>
         </div>
-
-
-
+    </div>
+</div>
 @endsection
 

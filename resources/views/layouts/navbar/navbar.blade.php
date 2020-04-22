@@ -19,24 +19,11 @@
                         <ul>
                             <li class="dropdown-item flex-column"><a href="{{ route('spa') }}">Все доступные тесты</a></li>
                             @foreach($categories as $category)
-                                <li class="dropdown-item d-flex flex-column">
-                                    <a href="{{ '/tests/category/'.  $category['id'] .'/tests' }}">{{ $category['name'] }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Экзамены
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <ul>
-                            <li class="dropdown-item flex-column"><a href="">Все доступные экзамены</a></li>
-                            @foreach($categories as $category)
-                                <li class="dropdown-item d-flex flex-column">
-                                    <a href="">{{ $category['name'] }}</a>
-                                </li>
+                                @if($category->id != 0)
+                                    <li class="dropdown-item d-flex flex-column">
+                                        <a href="{{ '/tests/category/'.  $category['id'] .'/tests' }}">{{ $category['name'] }}</a>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>
@@ -45,17 +32,9 @@
                     <a class="nav-link" href="{{ route('forum.thread.index') }}"> Сообщество</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Учебные материалы</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Премиум подписка</a>
-                </li>
-
             </ul>
 
-            <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Войти</a>
@@ -80,13 +59,14 @@
                                 <a class="dropdown-item" href="{{ route('group.index') }}">Управление группой</a>
                             @endif
                             @if(auth()->user()->checkRole(1))
-                                <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">Админка</a>
+                                    <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">Админка</a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">Личный кабинет</a>
                             @endif
                             <a class="dropdown-item" href="{{ route('home.settings') }}">Изменить аккаунт</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                Выйти из аккаунта
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

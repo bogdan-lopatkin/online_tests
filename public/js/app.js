@@ -2461,10 +2461,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         testInfo.maxTime = this.max_time;
         testInfo.max_points = 0;
         this.testQuestions.forEach(function (item) {
-          testInfo.max_points += item.points;
+          testInfo.max_points += parseInt(item.points);
         });
-        console.log(testInfo);
-        console.log(JSON.stringify(testInfo));
         var self = this;
         axios.post(this.save_route, JSON.stringify(testInfo)).then(function (response) {
           //redirect logic
@@ -2662,16 +2660,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchData();
@@ -2689,16 +2677,17 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var query = this.$route.query.s;
-      console.log(query);
       this.loading = true;
       axios.get(routes.category_tests + this.$route.params.categoryId, {
         params: {
           s: query
         }
       }).then(function (response) {
-        console.log(response);
         _this.tests = response.data.tests;
       });
+    },
+    showInfo: function showInfo(test) {
+      alert("1)Максимальное время на выполнение теста - " + test.max_time + "минут \n" + "2) Количество вопросов в тесте - " + test.questions);
     }
   }
 });
@@ -2714,8 +2703,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2793,6 +2780,11 @@ __webpack_require__.r(__webpack_exports__);
           _this.result = response.data.result;
         });
       }
+    }
+  },
+  filters: {
+    checkResult: function checkResult(value) {
+      if (value > test.points) return test.points;else return value;
     }
   }
 });
@@ -2981,16 +2973,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.fetchData();
   },
-  mounted: function mounted() {// var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
-    // let i = 0;
-    // while(elements.length > i) {
-    //     let childNode = elements[i].getElementsByTagName("img");
-    //     let parent = childNode[0].parentNode;
-    //     elements[i].insertBefore(childNode[0],parent);
-    //     elements[i].removeChild(elements[i].getElementsByTagName("a")[0]);
-    //     i++;
-    //  }
-  },
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -3091,7 +3073,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     nextQuestion: function nextQuestion() {
       this.save();
-      if (this.currentQuestion == 0) this.countDownTimer();
+
+      if (this.currentQuestion == 0) {
+        this.countDownTimer();
+        this.handleImages();
+      }
 
       if (this.currentQuestion + 1 > this.testData.questions.length && !this.testEnded) {
         this.testEnded = true;
@@ -3155,6 +3141,18 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (error) {
           if (error.response.status == 422) th.login_error = 'Учетная запись с такими данными не найдена';
         });
+      }
+    },
+    handleImages: function handleImages() {
+      var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
+      var i = 0;
+
+      while (elements.length > i) {
+        var childNode = elements[i].getElementsByTagName("img");
+        var parent = childNode[0].parentNode;
+        elements[i].insertBefore(childNode[0], parent);
+        elements[i].removeChild(elements[i].getElementsByTagName("a")[0]);
+        i++;
       }
     }
   },
@@ -23805,7 +23803,7 @@ var staticRenderFns = [
           _c("img", {
             attrs: {
               src:
-                "https://lh3.googleusercontent.com/pxgNn18P6LN0FUBb2_CRNlMo0H7iKRCjIphtaDWEabVn6yiz8GiWzvIp7PCjV3gE-rlB-Q=s164",
+                "https://onlinetests1.s3.us-east-2.amazonaws.com/site_logo.jfif",
               alt: "Logo"
             }
           })
@@ -23987,14 +23985,24 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "quizz-description" }, [
-              _c("h1", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("span", { staticClass: "quizz-id" }, [
-                    _vm._v(_vm._s(index + 1))
-                  ]),
-                  _vm._v(_vm._s(test["name"]))
-                ])
-              ]),
+              _c(
+                "h1",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: { to: { name: "test", params: { id: test.id } } }
+                    },
+                    [
+                      _c("span", { staticClass: "quizz-id" }, [
+                        _vm._v(_vm._s(index + 1))
+                      ]),
+                      _vm._v(_vm._s(test["name"]) + "\n                    ")
+                    ]
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("p", {
                 staticClass: "quiz-excerpt",
@@ -24013,11 +24021,28 @@ var render = function() {
                     },
                     [
                       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-                      _vm._v("ПРОЙТИ ТЕСТ\n                    ")
+                      _vm._v("ПРОЙТИ ТЕСТ\n                ")
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(2, true)
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary btn-reversed",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.showInfo(test)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+                      _vm._v(
+                        "\n                    БОЛЬШЕ ИНФОРМАЦИИ\n                "
+                      )
+                    ]
+                  )
                 ],
                 1
               )
@@ -24049,19 +24074,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("span", [_vm._v("МИНУТ")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { staticClass: "btn btn-secondary btn-reversed", attrs: { href: "" } },
-      [
-        _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-        _vm._v("БОЛЬШЕ ИНФОРМАЦИИ")
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -24148,7 +24160,7 @@ var render = function() {
               _c("h2", [
                 _vm._v("И набрали\n                            "),
                 _c("span", { staticClass: "value" }, [
-                  _vm._v(_vm._s(_vm.result["points"])),
+                  _vm._v(_vm._s(_vm.result["points"] || _vm.checkResult())),
                   _c("span", [_vm._v("/" + _vm._s(_vm.test.points))])
                 ]),
                 _vm._v("  баллов\n                        ")
@@ -24161,12 +24173,6 @@ var render = function() {
                   _vm._v("Поздравляем с завершением теста! Теперь Вы часть "),
                   _c("strong", [_vm._v(_vm._s(_vm.test.category))]),
                   _vm._v(" сообщества,проверившая свои знания!")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Пройдите экзамен и получите сертификат подтвержающий Ваши знания!\n                                Или, продолжайте проходить тесты и развивайте свои знания!!"
-                  )
                 ])
               ])
             ])
@@ -24763,7 +24769,8 @@ var staticRenderFns = [
           _c("img", {
             staticStyle: { "max-width": "200px" },
             attrs: {
-              src: "http://onlinetests/storage/site_logo.jfif",
+              src:
+                "https://onlinetests1.s3.us-east-2.amazonaws.com/site_logo.jfif",
               alt: "Logo"
             }
           })
@@ -41268,15 +41275,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/views/test_categories.vue ***!
   \************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _test_categories_vue_vue_type_template_id_0f3fa28c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test_categories.vue?vue&type=template&id=0f3fa28c& */ "./resources/js/views/test_categories.vue?vue&type=template&id=0f3fa28c&");
 /* harmony import */ var _test_categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test_categories.vue?vue&type=script&lang=js& */ "./resources/js/views/test_categories.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _test_categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _test_categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -41306,7 +41312,7 @@ component.options.__file = "resources/js/views/test_categories.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/views/test_categories.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

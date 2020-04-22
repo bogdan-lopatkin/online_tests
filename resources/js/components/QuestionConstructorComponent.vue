@@ -4,7 +4,7 @@
             <header>
                 <div class="site-branding">
                     <a title="OnlineTests">
-                        <img  src="https://lh3.googleusercontent.com/pxgNn18P6LN0FUBb2_CRNlMo0H7iKRCjIphtaDWEabVn6yiz8GiWzvIp7PCjV3gE-rlB-Q=s164" alt="Logo">
+                        <img  src="https://onlinetests1.s3.us-east-2.amazonaws.com/site_logo.jfif" alt="Logo">
                     </a>
                 </div>
             </header>
@@ -240,10 +240,8 @@
                     testInfo.maxTime = this.max_time;
                     testInfo.max_points = 0;
                     this.testQuestions.forEach((item) => {
-                        testInfo.max_points += item.points;
+                        testInfo.max_points += parseInt(item.points);
                     });
-                    console.log(testInfo);
-                    console.log(JSON.stringify(testInfo));
 
                     let self = this;
                     axios.post(this.save_route, JSON.stringify(testInfo))

@@ -4,12 +4,12 @@
 <div class="container">
 
 <div class="d-flex row mb-5">
-    <div class="col-1" style="color: black"><a class="" href="{{ route('user.show',$thread->owner->id) }}"><img style="max-width: 70px" src="{{ Storage::url($thread->owner->avatar_url) }}"></a></div>
+    <div class="col-1" style="color: black"><a class="" href="{{ route('user.show',$thread->owner->id) }}"><img  style="max-width: 70px; border-radius: 50%;" src="{{ Storage::url($thread->owner->avatar_url) }}"></a></div>
   <div class="col-11"  >
       <div class="mb-4 d-flex flex-column">
           <div>
               <h4 >
-                  <a href="#">{{ $thread->owner->name }}</a>
+                  <a href="{{ route('user.show',$thread->owner->id) }}">{{ $thread->owner->name }}</a>
                   <span class="text-black-50 small">{{ $thread->humanDate($thread->created_at) }}</span>
               </h4>
           </div>
@@ -24,12 +24,16 @@
 
 @forelse($thread->answers as $answer)
     <div class="d-flex row mb-5">
-        <div class="col-1" style="color: black"><a class="" href="{{ route('user.show',$answer->owner->id) }}"><img style="max-width: 70px" src="{{ Storage::url($answer->owner->avatar_url) }}"></a></div>
+        <div class="col-1" style="color: black">
+            <a class="" href="{{ route('user.show',$answer->owner->id) }}">
+                <img style="max-width: 70px; border-radius: 50%;" src="{{ Storage::url($answer->owner->avatar_url) }}">
+            </a>
+        </div>
         <div id="answer_container" class="col-11"  >
             <div class="d-flex flex-column">
                 <div>
                     <h4>
-                        <a class="owner_name" href="#">{{ $answer->owner->name }}</a>
+                        <a class="owner_name" href="{{ route('user.show',$answer->owner->id) }}">{{ $answer->owner->name }}</a>
                         <span class="text-black-50 small">{{ $answer->humanDate($answer->created_at) }}</span>
                     </h4>
                 </div>
@@ -64,7 +68,7 @@
         </div>
     </div>
 @empty
-    Здесь пока нет ответов
+        <h3 class="text-center pb-5"> Здесь пока нет ответов </h3>
 @endforelse
 @auth
 <div class="write_answer">
@@ -72,7 +76,7 @@
 </div>
 @endauth
 @guest
-<div class=" ">
+<div class="write_answer-need_auth">
      Войдите или зарегистрируйтесь что бы ответить.
 </div>
 @endguest

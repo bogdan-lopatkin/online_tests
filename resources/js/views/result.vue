@@ -25,14 +25,12 @@
                                 <span class="fa fa-question-circle" aria-hidden="true"></span>
                             </h2>
                             <h2>И набрали
-                                <span class="value">{{ result['points'] }}<span>/{{ test.points }}</span></span>&nbsp; баллов
+                                <span class="value">{{ result['points'] || checkResult() }}<span>/{{ test.points }}</span></span>&nbsp; баллов
                             </h2>
                         </div>
                         <div class="description">
                             <div>
                                 <p>Поздравляем с завершением теста! Теперь Вы часть <strong>{{ test.category }}</strong> сообщества,проверившая свои знания!</p>
-                                <p>Пройдите экзамен и получите сертификат подтвержающий Ваши знания!
-                                    Или, продолжайте проходить тесты и развивайте свои знания!!</p>
                             </div>
                         </div>
                     </div>
@@ -71,6 +69,14 @@
                             this.result = response.data.result;
                         })
                 }
+            }
+        },
+        filters : {
+            checkResult : function (value) {
+                if (value > test.points)
+                    return test.points;
+                else
+                    return value;
             }
         }
     }

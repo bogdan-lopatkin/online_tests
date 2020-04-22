@@ -12,31 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web','checkIfBanned']], function () {
     Auth::routes(['verify' => true]);
     Route::auth();
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/test','CategoriesController@index');
-
 
    // SPA controller
     Route::get('/tests{any?}', 'SpaController@index')->where('any', '.*')->name('spa');
-
-
-
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/home/settings', 'HomeController@settings')->name('home.settings');
     Route::resource('/user', 'UserController')->names('user')->only(['show','update']);
 
-//Route::resource('categories','CategoryController', [
-//    'categories' => 'category',
-//    'only' => ['index','show']
-//
-//]);
+
 
 // Tests routes
 Route::group(['namespace' => 'Test', 'prefix' => 'api'], function() {
@@ -44,8 +35,8 @@ Route::group(['namespace' => 'Test', 'prefix' => 'api'], function() {
     Route::get('/{category}/', 'TestController1@showCategory')->name('tests.category');
     Route::get('/search', 'TestController1@showSearched')->name('tests.search');
 });
-Route::get('/test/{test_id}', 'Test\TestController1@startTest')->name('test')->middleware(['auth','checkIfBanned']);
-Route::post('result','Test\ResultController')->name('showResult')->middleware(['auth','checkIfBanned']);
+Route::get('/test/{test_id}', 'Test\TestController1@startTest')->name('test')->middleware(['auth']);
+Route::post('result','Test\ResultController')->name('showResult')->middleware(['auth']);
 
 
 
@@ -69,8 +60,6 @@ Route::group(['namespace' => 'Group', 'prefix' => 'group','as' => 'group.'], fun
     Route::resource('/students', 'StudentController')->names('students');
     Route::resource('/homework', 'HomeworkController')->names('homework');
     Route::get('/articles', 'GroupController@articles')->name('articles');
-   // Route::get('/homework', 'GroupController@homework')->name('homework');
-  //  Route::get('/homework/{id}', 'GroupController@homeworkUpdate')->name('homework.update');
     Route::resource('/tests', 'TestController')->names('tests');
 });
 
@@ -79,14 +68,16 @@ Route::group(['namespace' => 'Group', 'prefix' => 'group','as' => 'group.'], fun
 Route::group(['namespace' => 'Forum', 'prefix' => 'forum','as' => 'forum.'], function() {
     Route::resource('/threads', 'ThreadController')->names('thread');
     Route::resource('/threads/answer', 'AnswerController')->names('thread.answer')->only('store','update','destroy');
- //   Route::resource('/threads/answer/like', 'LikeController')->names('like')->only('store','destroy');
     Route::post('/threads/answer/like', 'LikesController')->name('like');
 
 });
 
-// invokable routes
 
-// API ROUTES
+
+
+
+
+
 Route::post('/api/test/save','API\SaveTestController');
 Route::post('/api/file/upload','API\FileController@store')->name('img.upload');
 Route::post('/api/file/delete','API\FileController@destroy')->name('img.destroy');

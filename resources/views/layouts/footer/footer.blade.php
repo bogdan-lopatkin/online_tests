@@ -8,7 +8,7 @@
                         <ul>
                             <li><a><i class="fa fa-map-marker"></i> <span>Краматорск, IT2.0</span></a></li>
                             <li><a><i class="fa fa-phone"></i> <span>380954127115</span></a></li>
-                            <li><a href="mailto:contact@skillvalue.com" class="contact-mail"><i class="fa fa-envelope"></i> <span>bogdan.lopatkin@gmail.com</span></a></li>
+                            <li><i class="fa fa-envelope"></i> <a href="mailto:bogdan.lopatkin@gmail.com" class="contact-mail"><span>bogdan.lopatkin@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -22,10 +22,10 @@
                     <div class="footer-top__box social-box">
                         <h6>Подпишитесь на нас</h6>
                         <ul>
-                            <li><a href="https://www.facebook.com/" class="social-button facebook" target="_blank"></a><i class="fab fa-facebook-square"></i>Сделать иконку</li>
-                            <li><a href="https://twitter.com/" class="social-button twitter" target="_blank"></a><i class="fab fa-twitter-square"></i>Сделать иконку</li>
-                            <li><a href="https://www.linkedin.com/" class="social-button telegram" target="_blank"></a><i class="fab fa-telegram-plane"></i>Сделать иконку</li>
-                            <li><a href="https://plus.google.com" class="social-button google" target="_blank"></a><i class="fab fa-google-plus-square"></i>Сделать иконку</li>
+                            <li><a href="https://www.facebook.com/" class="social-button facebook" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                            <li><a href="https://twitter.com/" class="social-button twitter" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                            <li><a href="https://www.linkedin.com/" class="social-button telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+                            <li><a href="https://plus.google.com" class="social-button google" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
                         </ul>
                     </div>
                 </div>

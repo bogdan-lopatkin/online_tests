@@ -3,20 +3,21 @@
 @section('content')
 <div class="container">
 
-    <h2>Последние созданные темы <a id="add_new-thread" class="btn-secondary btn-lg ">Добавить новую</a></h2>
-    @foreach($threads as $thread)
+    <h2>Последние созданные темы @auth <a id="add_new-thread" class="btn-secondary btn-lg ">Добавить новую</a> @endauth</h2>
+    @forelse($threads as $thread)
     <div class="justify-content-start mt-5 d-flex align-items-center">
         <span><a class="" href="{{ route('user.show',$thread->owner->id) }}"><img style="max-width: 70px" class="mr-5" src="{{ Storage::url($thread->owner->avatar_url) }}"></a></span>
         <div class="d-flex flex-column">
             <h3><a class="" style="color:black" href="{{ route('forum.thread.show',$thread->id) }}">{{ $thread->name }}</h3>
             <div>
-                <a class="text-uppercase font-weight-bold" style="font-size: 16px" href="#">{{ $thread->owner->name }}</a>
+                <a class="text-uppercase font-weight-bold" style="font-size: 16px" href="{{ route('user.show',$thread->owner->id) }}">{{ $thread->owner->name }}</a>
                 <span style="color: gray">Создано {{ $thread->humanDate($thread->created_at) }}</span>
             </div>
         </div>
     </div>
-
-    @endforeach
+    @empty
+        <h4>Здесь пока нет тем</h4>
+    @endforelse
     <div id="myModal" class="modal">
 
         <div id="myModal2" class="modal">

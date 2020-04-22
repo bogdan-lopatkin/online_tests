@@ -4,36 +4,34 @@
     <list default="true" id="92e0a141-6783-4bb9-827e-f2da3480c044" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../localhost/.idea/localhost.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../localhost/php/.idea/php.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/breadcrumbs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/online_tests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online_tests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Group/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Group/GroupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Group/HomeworkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Group/HomeworkController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Test/TestController1.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Test/TestController1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/QuestionConstructorComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/QuestionConstructorComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/category_tests.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/category_tests.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/result.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/passwords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/answers/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/answers/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/answers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/answers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/categories.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/categories/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/categories/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/categories/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/categories/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/questions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/questions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/questions/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/questions/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/questions/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/questions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/questions/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/tests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/tests.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/tests/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/tests/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/tests/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/tests/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/tests/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/tests/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Forum/thread.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Forum/thread.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Forum/threads.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Forum/threads.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Group/homework/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Group/homework/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Group/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Group/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Group/tests/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Group/tests/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/footer/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user_settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,19 +172,19 @@
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\openserv\OSPanel\domains\online_tests\app\Models" />
-      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin\layouts" />
-      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin" />
-      <recent name="D:\openserv\OSPanel\domains\online_tests\public\css" />
-      <recent name="D:\openserv\OSPanel\domains\online_tests\app\Http\Controllers\Test" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\openserv\OSPanel\domains\online_tests\routes" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\js\components" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\lang" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views" />
       <recent name="D:\openserv\OSPanel\domains\online_tests\resources\js\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\openserv\OSPanel\domains\online_tests\app\Models" />
+      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin\layouts" />
+      <recent name="D:\openserv\OSPanel\domains\online_tests\resources\views\Admin" />
+      <recent name="D:\openserv\OSPanel\domains\online_tests\public\css" />
+      <recent name="D:\openserv\OSPanel\domains\online_tests\app\Http\Controllers\Test" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,7 +206,8 @@
       <workItem from="1585145683264" duration="6648000" />
       <workItem from="1585153769702" duration="973000" />
       <workItem from="1585163107128" duration="71975000" />
-      <workItem from="1585375697048" duration="501293000" />
+      <workItem from="1585375697048" duration="512356000" />
+      <workItem from="1586764299902" duration="20509000" />
     </task>
     <servers />
   </component>
@@ -260,10 +259,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="681" y="261" width="570" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1586168604881" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585378738286">
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586764299478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585378738286" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586764299478" />
     <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586448837882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

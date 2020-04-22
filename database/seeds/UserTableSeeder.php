@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
             'email' => 'user@gmail.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'password' => Hash::make('1234'),
-            'role_id' => '3',
+            'group_id' => '3',
             'banned' => '0',
         ]);
 
@@ -26,7 +26,7 @@ class UserTableSeeder extends Seeder
             'email' => 'banned@gmail.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'password' => Hash::make('1234'),
-            'role_id' => '3',
+            'group_id' => '3',
             'banned' => '1',
         ]);
 
@@ -35,8 +35,16 @@ class UserTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'password' => Hash::make('1234'),
-            'role_id' => '1',
-            'banned' => '1',
+            'group_id' => '1',
+            'banned' => '0',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'teacher',
+            'email' => 'teacher@gmail.com',
+            'email_verified_at' => \Carbon\Carbon::now(),
+            'password' => Hash::make('1234'),
+            'group_id' => '1',
+            'banned' => '0',
         ]);
     }
 }

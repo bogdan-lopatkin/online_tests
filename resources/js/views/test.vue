@@ -2,11 +2,11 @@
     <div v-if="!loading && !notAuthorized" @keyup.left="previousQuestion"
           @keyup.right="nextQuestion"
           tabindex="0" class="test-container">
-        <div class="testsidebar ">
+        <div  class="testsidebar ">
             <header>
                 <div class="site-branding">
                     <a title="OnlineTests">
-                        <img style="max-width:200px" src="http://onlinetests/storage/site_logo.jfif" alt="Logo">
+                        <img style="max-width:200px" src="https://onlinetests1.s3.us-east-2.amazonaws.com/site_logo.jfif" alt="Logo">
                     </a>
                 </div>
             </header>
@@ -171,18 +171,6 @@
         created() {
             this.fetchData();
         },
-        mounted() {
-            // var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
-            // let i = 0;
-            // while(elements.length > i) {
-            //     let childNode = elements[i].getElementsByTagName("img");
-            //     let parent = childNode[0].parentNode;
-            //     elements[i].insertBefore(childNode[0],parent);
-            //     elements[i].removeChild(elements[i].getElementsByTagName("a")[0]);
-            //     i++;
-            //  }
-
-        },
         data : function () {
             return {
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -282,8 +270,10 @@
             },
             nextQuestion() {
                 this.save();
-                if (this.currentQuestion == 0)
+                if (this.currentQuestion == 0) {
                     this.countDownTimer();
+                    this.handleImages();
+                }
                 if (this.currentQuestion + 1 > this.testData.questions.length && !this.testEnded) {
                     this.testEnded = true;
                     this.currentQuestion++;
@@ -346,6 +336,17 @@
                                 th.login_error = 'Учетная запись с такими данными не найдена';
                     })
                 }
+            },
+            handleImages() {
+                    var elements = document.getElementsByClassName('attachment attachment--preview attachment--png');
+                    let i = 0;
+                    while(elements.length > i) {
+                        let childNode = elements[i].getElementsByTagName("img");
+                        let parent = childNode[0].parentNode;
+                        elements[i].insertBefore(childNode[0],parent);
+                        elements[i].removeChild(elements[i].getElementsByTagName("a")[0]);
+                        i++;
+                     }
             }
         },
 

@@ -27,8 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->checkRole(1))
-            return redirect(route('admin.dashboard.index'));
+
         if(auth()->user()->checkRole(2))
             return redirect(route('group.index'));
         return view('home',['tests' => $this->model->getUserTests(Auth::id())]);

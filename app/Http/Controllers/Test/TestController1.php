@@ -26,21 +26,17 @@ class TestController1 extends Controller
 
     public function index()
     {
-     //   return view('tests/categories',['testCategories' => $this->model->testCategories(),
-     //       'difficulty'=>['offset','Начинающий','Ученик','Студент','Знаток','Профессионал']]);
         return json_encode(['testCategories' => $this->model->testCategories(),'difficulty'=>['offset','Начинающий','Ученик','Студент','Знаток','Профессионал']]);
 
     }
 
     public function showCategory(Request $request, $id)
     {
-      //  return view('tests/categoryTests',['tests' => $this->model->categoryTests($id,$request->get('s')),'request' => $request->get('s')]);
         return json_encode(['tests' => $this->model->categoryTests($id,$request->get('s')),'request' => $request->get('s')]);
     }
 
     public function startTest($id)
     {
-        /*        return view('tests/test', */
        return json_encode(['testData' => $this->model->getTestData($id), 'savedData' => $this->userModel->getSavedTestData(Auth::id(),$id) ]);
     }
 }
